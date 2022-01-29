@@ -1,24 +1,25 @@
 .background {
     background-color: pink;
     color: white ;
-    font-size: 60px;
+    font-size: 50px;
     text-align: center;
 }
 
 .sectiontwo {
 background-color: purple;
 text-align: right;
-width: 50%;
-
+width: 30%;
 
 }
 
-#search {
-    font-size: 80px;
-    text-align: right;
-    color: white;
-    width: 100%;
-    margin: 0;
+input {
 
-    
+    width: 600px;
+    height: 15px;
+    align-items: center;
 }
+.div {
+    display: flex;
+    justify-content: flex-end;
+}
+
