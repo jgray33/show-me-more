@@ -14,6 +14,12 @@ async function getIMDBApi() {
     let response2 = await fetch(getFullCast)
     let data2 = await response2.json()
     console.log(data2)
+    console.log(data2.actors[0])
+    let characterName = data2.actors[0].asCharacter
+    let actorName = (data2.actors[0].name)
+    $("#actor-info").append(`<li>Character name: ${characterName}</li>`,`<li>${actorName}</li>` )
+
+
 }
 
 getIMDBApi()
