@@ -21,8 +21,8 @@ async function getIMDBApi() {
 
 
 }
-
 getIMDBApi()
+
 
 
  
