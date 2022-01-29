@@ -1,27 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Practice HTML Group Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/index.css" />
+  </head>
 
+  <body>
+    <section id="main">
+        <form>
+            <div class="container">
+                <h1>Enter a movie</h1>
+                    <div class="row">
+                        <div class="small-6 large-9 columns">
+                            <input type="text" class="large border rounded" placeholder="Search for a movie..." />
+                        </div>
+                        <div class="small-6 large-3 columns">
+                            <button class="submit rounded primary button">Search</button>
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </section>
+    
+    <section class= "sectiontwo" >
+        <p id ="search"> <i> search <i></p>
+    </section>
+    <section class= "background" > 
+      <h1><strong><i> Watched a great movie? Find all the stars and their info here </i></strong></h1>
+    </section>
+    <div>
+        <div class="actors" style="width: 100px; float: left; height: 100px; background: grey; margin: 10px;">
+            <h1>List of actors</h1>
+                <li><strong>Name: </strong> Tom Holland</li>
+                <li><strong>Occupation:</strong> Actor</li>
+                <li><strong>Acting Credits: </strong> Most commonly known for his role as Peter Parker in Spider-Man No Way Home.</li>
+            <button><a href="https://en.wikipedia.org/wiki/Tom_Holland">Read More</a></button>
+    
+        </div>
+        <div class="image" style="width: 100px; float: center; height: 100px; background: grey; margin: 10px;">
+           <img class="item" src=./assets/images/Spiderman.jpeg width="500" height="500">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Practice HTML Group Project </title>
-    <link rel="stylesheet" href="./assets/index.css"
-</head>
- 
-
-<body> 
-<div>
-<section class= "background" > 
-<h1><strong><i> Watched a great movie? Find all the actors and their info here </i></strong></h1>
-</section>
-
-
-    <input name="searchbar" type="text">       
-    <button> <i><strong> search </strong></i></button>
-
-
-</div>
-
-</body>
-
+        </div>
+       <div class="social-media" style="width: 500px; float: right; height: 100px; background: grey; margin: 10px;">
+            <h2>Twitter, Instagram and more</h2>
+            <ul>See what Tom Holland has been Tweeting <a href="https://twitter.com/tomholland1996">here</a></ul>
+            <ul>Keep up with the latest on Tom Holland's Instagram <a href="https://www.instagram.com/tomholland2013/?hl=en">here</a></ul>
+        </div>
+    </div>
+  </body>
 </html>

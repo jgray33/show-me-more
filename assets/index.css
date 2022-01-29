@@ -1,9 +1,37 @@
+html, body {
+    box-sizing: border-box;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/883/883/818/movie-collage-wallpaper-preview.jpg');
+    background-size: cover;
+    height: 100%;
+}
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100% !important;
+}
+
+h1 {
+    color: #fff;
+}
+
+.large {
+    width: 500px;
+    border-radius:;
+}
+
+.submit {
+    margin-left: 10px;
+    width: 100px;
+    border-radius: 25px;
+
+}
+
 .background {
     background-color: pink;
     color: white ;
     font-size: 50px;
     text-align: center;
-}
 
 .sectiontwo {
 background-color: purple;
