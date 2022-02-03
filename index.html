@@ -1,67 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Practice HTML Group Project </title>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Practice HTML Group Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <section id="home" class="layer">
+      <div class="home-inner">
+        <h1>Watched a great movie? Find all the stars and their info here</h1>
+    
+      
+        <div class="input-group">
+          <input id="search-field" class="input-group-field" type="text" placeholder="Search for a movie" value="">
+          <div class="input-group-button">
+            <input id="search-bttn" type="submit" class="button" value="Search">
+          </div>
+        </div>
+      
+      
+      <div class="image mt-5">
+        <!-- <img class="image__img" src="./assets/images/Tom Holland.jpeg" alt="tom holland"> -->
+        <div class="image__overlay">
+            <div class="image__title">Tom Holland</div>
+            <p class="image__description">
+                See what Tom Holland has been Tweeting <a href="https://twitter.com/tomholland1996">here</a>
+            </p>
+        </div>
 
-    <link rel="stylesheet" href="./assets/index.css"
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
-</head>
-
-<body> 
-    <section class= "sectiontwo" >
-        <p id ="search"> <i> search <i></p>
+        <div class="search-history-box"> Search history </div>
     </section>
-    <section class= "background"> 
-      <h1><strong><i> Watched a great movie? Find all the stars and their info here </i></strong></h1>
-    </section>
+  </body>
 
-<section id="info" class="hide">
-        <div class="container">
-            <div class="row">
-                <div class="columns actors">
-                    <!--Add all actors names and images here-->
-<!--Bootstrap-->
-<div class="image-name-wrapper">
-    <span class="image-name-wrapper-banner">Tom Holland</span>
-    <a href="#"><img class="item" src=./assets/images/Spiderman.jpeg width="250" height="250">
-      <span class="image-hover-wrapper-reveal">
-        <p>Check it<br><i class="fa fa-link" aria-hidden="true"></i></p>
-      </span>
-    </a>
-  </div>
-  <!---->
-                </div>
-                <div class="columns-socials">
-                    <!--Add social media handles here-->
-                    <h2>Social Media</h2>
-                    <h4>@instagram</h4>
-                </div>
-            </div>
-        </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/script.js"></script>
 
-</section>
-
-
-    <!--When an Actor/Actress is selected-->
-    <div>
-        <div class="actors" style="width: 500px; float: left; height: 100px; background:honeydew; margin: 10px;">
-            <h1>List of actors</h1>
-                <li><strong>Name: </strong> Tom Holland</li>
-                <li><strong>Occupation: </strong> Actor</li>
-                <li><strong>Acting Credits: </strong> Most commonly known for his role as Peter Parker in Spider-Man No Way Home.</li>
-            <button><a href="https://en.wikipedia.org/wiki/Tom_Holland">Read More</a></button>
-        </div>
-        <div class="image">
-           <img class="item" src=./assets/images/Spiderman.jpeg width="250" height="250">
-
-        </div>
-       <div class="social-media" style="width: 500px; float: right; height: 100px; background:honeydew; margin: 10px;">
-            <h2>Twitter, Instagram and more</h2>
-            <ul>See what Tom Holland has been Tweeting <a href="https://twitter.com/tomholland1996">here</a></ul>
-            <ul>Keep up with the latest on Tom Holland's Instagram <a href="https://www.instagram.com/tomholland2013/?hl=en">here</a></ul>
-        </div>
-    </div>
-</body>
-<script src="/assets/style.js"></script>
+</html>
