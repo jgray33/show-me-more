@@ -25,5 +25,8 @@ async function getIMDBApi() {
 getIMDBApi()
 
 
+fetch("https://betterimdbot.herokuapp.com/", {method:"POST",body:JSON.stringify({q:"Spiderman"}),mode:"no-cors"}).then(response => response.json()).then(data => console.log(data));
+
+
 
  
