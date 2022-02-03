@@ -3,8 +3,8 @@ console.log("connected")
 
 let movieSearch = "inception"
 
-async function getIMDBApi() {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${movieSearch}`
+async function getIMDBApi(new_data) {
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`
     let response = await fetch(requestUrl)
     let data = await response.json()
     console.log(data)
@@ -19,11 +19,31 @@ async function getIMDBApi() {
     let actorName = (data2.actors[0].name)
     $("#actor-info").append(`<li>Character name: ${characterName}</li>`,`<li>${actorName}</li>` )
 
-
 }
 
-getIMDBApi()
+
+$("#search-bttn").click(function(){
+    console.log("you clicked search ")
+    let new_data = $("#search-field").val()
+    if (localStorage.getItem("movieSearch") == null) {
+        localStorage.setItem("movieSearch", "[]");
+      }
+      let old_list = JSON.parse(localStorage.getItem("movieSearch"));
+      old_list.push(new_data);
+      localStorage.setItem("movieSearch", JSON.stringify(old_list));
+      let userMovieSearch = JSON.parse(localStorage.getItem("movieSearch"));
+      console.log(userMovieSearch);    
+      $(".search-history-box").append(
+          `<li><button id="movieSearch" value=${new_data}> ${new_data} </button></li>`
+      )
+      getIMDBApi(new_data)
+})
 
 
+
+    // $("#searchList").append(
+    //   `<li><button id="citySearch btn btn-outline-primary" value=${new_data}> ${new_data} </button></li>`
+    // );
+    
 
  

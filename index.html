@@ -1,3 +1,4 @@
+
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -13,19 +14,19 @@
   <body>
     <section id="home" class="layer">
       <div class="home-inner">
-        <h1>Watched a great movie? Find all the stars and their info here ..............</h1>
+        <h1>Watched a great movie? Find all the stars and their info here</h1>
     
-      <form action="">
+      
         <div class="input-group">
-          <input class="input-group-field" type="text" placeholder="Search for a movie...">
+          <input id="search-field" class="input-group-field" type="text" placeholder="Search for a movie" value="">
           <div class="input-group-button">
-            <input type="submit" class="button" value="Search">
+            <input id="search-bttn" type="submit" class="button" value="Search">
           </div>
         </div>
-      </form> 
+      
       
       <div class="image mt-5">
-        <img class="image__img" src="./assets/images/Tom Holland.jpeg" alt="tom holland">
+        <!-- <img class="image__img" src="./assets/images/Tom Holland.jpeg" alt="tom holland"> -->
         <div class="image__overlay">
             <div class="image__title">Tom Holland</div>
             <p class="image__description">
@@ -33,5 +34,12 @@
             </p>
         </div>
 
+        <div class="search-history-box"> Search history </div>
+    </section>
   </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/style.js"></script>
+
 </html>
+
