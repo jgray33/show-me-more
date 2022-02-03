@@ -1,0 +1,77 @@
+html, body {
+    box-sizing: border-box;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/883/883/818/movie-collage-wallpaper-preview.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100%;
+    font-size: 16px;
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home {
+    background: "";
+    height: 50%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+h1 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#home .input-group-field {
+    border-radius: 5000px 0 0 5000px;
+    position: relative;
+    -webkit-transform: translateX(0.5rem);
+        -ms-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
+}
+
+  
+#home .input-group {
+    margin-bottom: 0;
+}
+  
+#home .home-inner {
+    text-align: center;
+}
+  
+#home .input-group-button .button {
+    border-radius: 5000px;
+    position: relative;
+    -webkit-transform: translateX(-0.5rem);
+        -ms-transform: translateX(-0.5rem);
+            transform: translateX(-0.5rem);
+    min-width: 15vw;
+}
+
+  
+@media print, screen and (min-width: 40em) {
+    #home {
+      padding: 0 3rem;
+    }
+}
+  
+@media print, screen and (min-width: 64em) {
+    #home {
+      padding: 0 6rem;
+    }
+}
+  
+ 
+
