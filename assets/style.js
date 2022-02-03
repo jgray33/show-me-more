@@ -21,8 +21,30 @@ async function getIMDBApi() {
 
 }
 
-getIMDBApi()
 
 
+// getIMDBApi()
+
+$("#search-bttn").click(function(){
+    console.log("you clicked search ")
+    let new_data = $("#search-field").val()
+    if (localStorage.getItem("movieSearch") == null) {
+        localStorage.setItem("movieSearch", "[]");
+      }
+      let old_list = JSON.parse(localStorage.getItem("movieSearch"));
+      old_list.push(new_data);
+      localStorage.setItem("movieSearch", JSON.stringify(old_list));
+      let userMovieSearch = JSON.parse(localStorage.getItem("movieSearch"));
+      console.log(userMovieSearch);
+      
+
+})
+
+
+
+    // $("#searchList").append(
+    //   `<li><button id="citySearch btn btn-outline-primary" value=${new_data}> ${new_data} </button></li>`
+    // );
+    
 
  
