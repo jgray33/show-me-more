@@ -3,8 +3,8 @@ console.log("connected")
 
 let movieSearch = "inception"
 
-async function getIMDBApi() {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${movieSearch}`
+async function getIMDBApi(new_data) {
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`
     let response = await fetch(requestUrl)
     let data = await response.json()
     console.log(data)
@@ -22,9 +22,6 @@ async function getIMDBApi() {
 }
 
 
-
-// getIMDBApi()
-
 $("#search-bttn").click(function(){
     console.log("you clicked search ")
     let new_data = $("#search-field").val()
@@ -39,7 +36,7 @@ $("#search-bttn").click(function(){
       $(".search-history-box").append(
           `<li><button id="movieSearch" value=${new_data}> ${new_data} </button></li>`
       )
-
+      getIMDBApi(new_data)
 })
 
 
