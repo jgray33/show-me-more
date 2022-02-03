@@ -1,7 +1,6 @@
 console.log("connected")
 // Fetches the IMDI data ----------------------------
 
-let movieSearch = "inception"
 
 async function getIMDBApi(new_data) {
     let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`
@@ -18,10 +17,11 @@ async function getIMDBApi(new_data) {
     let characterName = data2.actors[0].asCharacter
     let actorName = (data2.actors[0].name)
     $("#actor-info").append(`<li>Character name: ${characterName}</li>`,`<li>${actorName}</li>` )
+    // Actor's image: data.results[0].image
 
 }
 
-
+// When the search button is pressed, user's search adds to search history -------------------------------
 $("#search-bttn").click(function(){
     console.log("you clicked search ")
     let new_data = $("#search-field").val()
