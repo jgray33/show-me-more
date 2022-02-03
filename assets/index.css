@@ -75,7 +75,7 @@ h1 {
   
  
 
-.search-history-box{
+.search-history-box, #movieSearch{
     color: white;
 }
 

@@ -35,8 +35,10 @@ $("#search-bttn").click(function(){
       old_list.push(new_data);
       localStorage.setItem("movieSearch", JSON.stringify(old_list));
       let userMovieSearch = JSON.parse(localStorage.getItem("movieSearch"));
-      console.log(userMovieSearch);
-      
+      console.log(userMovieSearch);    
+      $(".search-history-box").append(
+          `<li><button id="movieSearch" value=${new_data}> ${new_data} </button></li>`
+      )
 
 })
 
