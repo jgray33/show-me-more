@@ -19,7 +19,6 @@ async function getIMDBApi() {
     let actorName = (data2.actors[0].name)
     $("#actor-info").append(`<li>Character name: ${characterName}</li>`,`<li>${actorName}</li>` )
 
-
 }
 
 getIMDBApi()
