@@ -5,6 +5,7 @@ let characterName
 let twitterHandle
 let actorImage
 let characterName2
+let movieId
 
 
 // When the search button is pressed, user's search adds to search history -------------------------------
@@ -31,21 +32,30 @@ async function getIMDBApi(new_data) {
   let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
   let response = await fetch(requestUrl);
   let data = await response.json();
-  let movieId = data.results[0].id;
+  let movieId = data.results[0].id
+  getActorList(movieId)       
+}
+
+  async function getActorList(){
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2)
-  characterName = data2.actors[0].asCharacter;
-  actorName = data2.actors[0].name;
-  let filmImage = data.results[0].image;
-  actorImage = data2.actors[0].image
+
+//   Need to test this
+for (let i = 0; i < 3; i++) {
+    characterName = data2.actors[i].asCharacter;
+  actorName = data2.actors[i].name;
+  let filmImage = data.results[i].image;
+  actorImage = data2.actors[i].image
   console.log(actorName);
     let actorNameArray = actorName.split(" ");
   console.log(actorNameArray);
   let actorFirstName = actorNameArray[0];
   let actorSecondName = actorNameArray[1];
   getActorID(actorFirstName, actorSecondName);
+    }
+  
   }
 
 
@@ -55,7 +65,6 @@ async function getActorID(actorFirstName, actorSecondName) {
   let response = await fetch(requestUrl);
   let data = await response.json();
   console.log(data);
-  actorImage = data.results[0]
   let actorID = data.results[0].id
   console.log(actorID)
   getTwitterID(actorID)
@@ -78,7 +87,7 @@ function renderCard() {
               <span class="image-hover-wrapper-banner">${actorName}</span>
               <a href="#"><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
-                  <p>Check it<br><i class="fab fa-twitter" aria-hidden="true"></i></p>
+                  <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${twitterHandle}</i></p>
                 </span>
               </a>
             </div>
