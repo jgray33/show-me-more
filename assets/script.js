@@ -5,9 +5,8 @@ async function getIMDBApi(new_data) {
   let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
   let response = await fetch(requestUrl);
   let data = await response.json();
-  console.log(data);
-  let movieId = data.results[0].id;
-  console.log(movieId);
+    let movieId = data.results[0].id;
+  
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
@@ -53,6 +52,19 @@ async function getActorID(actorFirstName, actorSecondName) {
   let response = await fetch(requestUrl);
   let data = await response.json();
   console.log(data);
+  let actorID = data.results[0].id
+  console.log(actorID)
+  getTwitterID(actorID)
+  }
+
+
+async function getTwitterID(actorID){
+let requestUrl = `https://api.themoviedb.org/3/person/${actorID}/external_ids?api_key=7fcabf766db7f48c8e77b585913f04f8&language=en-US`
+let response = await fetch(requestUrl)
+let data = await response.json()
+console.log(data)
+let instagramHandle = data.instagram_id
+let twitterHandle = data.twitter_id
 }
 
 // Get the names of the actor's in the film from a movie search
