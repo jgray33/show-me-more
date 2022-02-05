@@ -29,34 +29,32 @@ $("#search-bttn").click(function () {
 
 // Fetches the list of actor's from the user's search using IMDI data ----------------------------
 async function getIMDBApi(new_data) {
-  let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
+  let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5zx1v7j/${new_data}`;
   let response = await fetch(requestUrl);
   let data = await response.json();
-  let movieId = data.results[0].id
+  movieId = data.results[0].id
   getActorList(movieId)       
 }
 
   async function getActorList(){
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2)
 
-//   Need to test this
+//   Need to test this 
 for (let i = 0; i < 3; i++) {
     characterName = data2.actors[i].asCharacter;
   actorName = data2.actors[i].name;
-  let filmImage = data.results[i].image;
   actorImage = data2.actors[i].image
   console.log(actorName);
     let actorNameArray = actorName.split(" ");
   console.log(actorNameArray);
   let actorFirstName = actorNameArray[0];
   let actorSecondName = actorNameArray[1];
-  getActorID(actorFirstName, actorSecondName);
+  getActorID(actorFirstName[i], actorSecondName[i]);
     }
-  
-  }
+    }
 
 
 // Used the TMDB API to get the Actor's ID -----------------------------------------------
@@ -85,7 +83,7 @@ function renderCard() {
     let output = 
     `    <div class="image-hover-wrapper column">
               <span class="image-hover-wrapper-banner">${actorName}</span>
-              <a href="#"><img src="${actorImage}">
+              <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
                   <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${twitterHandle}</i></p>
                 </span>
