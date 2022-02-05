@@ -9,6 +9,7 @@ let movieId;
 
 // When the search button is pressed, user's search adds to search history -------------------------------
 $("#search-bttn").click(function () {
+
   $("#actors-card").removeClass("hide")
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
@@ -25,6 +26,7 @@ $("#search-bttn").click(function () {
   );
   getIMDBApi(new_data);
 });
+
 
 // Fetches the list of actor's from the user's search using IMDI data ----------------------------
 async function getIMDBApi(new_data) {
