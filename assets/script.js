@@ -11,7 +11,7 @@ let movieId
 
 // When the search button is pressed, user's search adds to search history -------------------------------
 $("#search-bttn").click(function () {
-	buttonEl.removeAttribute('class');
+	actorsEL.removeAttribute('class');
     console.log("you clicked search ");
     let new_data = $("#search-field").val();
     if (localStorage.getItem("movieSearch") == null) {
