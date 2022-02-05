@@ -37,6 +37,7 @@ h1 {
 #home .input-group-field {
     border-radius: 5000px 0 0 5000px;
     position: relative;
+    width: 102%;
     -webkit-transform: translateX(0.5rem);
         -ms-transform: translateX(0.5rem);
             transform: translateX(0.5rem);
@@ -52,31 +53,27 @@ h1 {
 }
   
 #home .input-group-button .button {
-    border-radius: 5000px;
     position: relative;
-    -webkit-transform: translateX(-0.5rem);
-        -ms-transform: translateX(-0.5rem);
-            transform: translateX(-0.5rem);
+    border-radius: 5000px;
     min-width: 15vw;
 }
 
 #actors-card {
-    background-color: bisque;
+    background: linear-gradient(135deg, hsla(245, 97%, 63%, 0.65), hsla(133, 89%, 49%, 0.65));
     width: 900px;
-    height: 450px;
+    height: 460px;
+    border-radius: 6px;
 }
 
 .row {
     display: flex;
     margin-top: 45px;
 }
-.column {
-    flex: 10%;
-    padding: 5px;
-}
 
 .image-hover-wrapper {
     position: relative;
+    flex: 10%;
+    padding: 5px;
   }
   
   .image-hover-wrapper a {
@@ -91,7 +88,9 @@ h1 {
   .image-hover-wrapper a img {
     float: left;
     overflow: hidden;
-    width: 175px;
+    width: 197px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px #463b3b;
   }
   
   .image-hover-wrapper a .image-hover-wrapper-reveal {
@@ -145,23 +144,63 @@ h1 {
     padding: 0.5rem;
     position: absolute;
     top: 25%;
-    width: 79%;
+    width: 66%;
     z-index: 10;
-    margin-top: 94px;
+    margin-top: 111px;
+    margin-left: 51px;
   }
+
   
-@media print, screen and (min-width: 40em) {
-    #home {
-      padding: 0 3rem;
+@media print, screen and (max-width: 810px) {
+    html, body {
+        background-repeat: repeat;
     }
-}
-  
-@media print, screen and (min-width: 64em) {
     #home {
       padding: 0 6rem;
     }
+    .home-inner h1 {
+        font-size: 100%;
+    }
+    #home .input-group {
+        margin-bottom: 0;
+        width: 75%;
+        margin-left: 100px;
+    }
+    #actors-card {
+        background: none;
+    }
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .image-hover-wrapper a img {
+        width: 400px;
+    }
+    .image-hover-wrapper .image-hover-wrapper-banner {
+        width: 400px;
+        margin-top: 263px;
+        margin-left: 250px;
+    }
 }
   
+@media print, screen and (max-width: 480px) {
+    #home .input-group {
+        margin-bottom: 0;
+        width: 46%;
+        margin-left: 237px;
+      }
+      
+    .image-hover-wrapper a img {
+        width: 330px;
+    }
+    .image-hover-wrapper .image-hover-wrapper-banner {
+        width: 330px;
+        margin-top: 210px;
+        margin-left: 285px;
+    }
+
+}
  
 
 .search-history-box, #movieSearch{

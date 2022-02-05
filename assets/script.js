@@ -1,4 +1,7 @@
 console.log("connected")
+
+const actorsEL = document.querySelector('#actors-card');
+
 // Fetches the IMDI data ----------------------------
 
 
@@ -23,6 +26,7 @@ async function getIMDBApi(new_data) {
 
 // When the search button is pressed, user's search adds to search history -------------------------------
 $("#search-bttn").click(function(){
+    actorsEL.removeAttribute('class');
     console.log("you clicked search ")
     let new_data = $("#search-field").val()
     if (localStorage.getItem("movieSearch") == null) {
