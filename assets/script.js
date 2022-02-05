@@ -52,7 +52,7 @@ for (let i = 0; i < 3; i++) {
   console.log(actorNameArray);
   let actorFirstName = actorNameArray[0];
   let actorSecondName = actorNameArray[1];
-  getActorID(actorFirstName[i], actorSecondName[i]);
+ await getActorID(actorFirstName[i], actorSecondName[i]);
     }
     }
 
@@ -65,7 +65,7 @@ async function getActorID(actorFirstName, actorSecondName) {
   console.log(data);
   let actorID = data.results[0].id
   console.log(actorID)
-  getTwitterID(actorID)
+  await getTwitterID(actorID)
   }
 
 // Get the social media handles from the TMDB API ----------------------------------------
@@ -74,9 +74,9 @@ let requestUrl = `https://api.themoviedb.org/3/person/${actorID}/external_ids?ap
 let response = await fetch(requestUrl)
 let data = await response.json()
 console.log(data)
-let instagramHandle = data.instagram_id
-let twitterHandle = data.twitter_id
-renderCard()
+instagramHandle = data.instagram_id
+ twitterHandle = data.twitter_id
+await renderCard()
 }
 
 function renderCard() {
