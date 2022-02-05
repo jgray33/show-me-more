@@ -1,4 +1,6 @@
-console.log("connected");
+
+const actorsEL = document.querySelector('#actors-card');
+
 
 let actorName 
 let characterName
@@ -9,6 +11,7 @@ let movieId
 
 // When the search button is pressed, user's search adds to search history -------------------------------
 $("#search-bttn").click(function () {
+	buttonEl.removeAttribute('class');
     console.log("you clicked search ");
     let new_data = $("#search-field").val();
     if (localStorage.getItem("movieSearch") == null) {
@@ -77,6 +80,7 @@ instagramHandle = data.instagram_id
  twitterHandle = data.twitter_id
 await renderCard()
 }
+
 
 function renderCard() {
     let output = 
