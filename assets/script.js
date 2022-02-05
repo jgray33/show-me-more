@@ -36,6 +36,8 @@ async function getIMDBApi(new_data) {
   getActorList(movieId);
 }
 
+
+
 async function getActorList() {
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_klb075h2/${movieId}`;
   let response2 = await fetch(getFullCast);
@@ -88,6 +90,8 @@ function renderCard() {
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
                   <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${twitterHandle}</i></p>
+                  <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${instagramHandle}</i></p>
+
                 </span>
               </a>
             </div>
