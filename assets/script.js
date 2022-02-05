@@ -4,7 +4,6 @@ let actorName
 let characterName
 let twitterHandle
 let actorImage
-let characterName2
 let movieId
 
 
@@ -82,6 +81,7 @@ await renderCard()
 function renderCard() {
     let output = 
     `    <div class="image-hover-wrapper column">
+            <span class="image-hover-wrapper-banner">${characterName}</span>
               <span class="image-hover-wrapper-banner">${actorName}</span>
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
