@@ -33,6 +33,31 @@ $(".userMovieSearch").on("click", event => {
 })
 
 
+//  Searches for the next for actors once clicked on the "next page button"
+let clickCount = 0
+$("#next-page").on("click",  async function nextPage() {
+  let newClickCount = clickCount++
+  let x = (clickCount*4)
+    let getFullCast = `https://imdb-api.com/en/API/FullCast/k_klb075h2/${movieId}`;
+    let response2 = await fetch(getFullCast);
+    let data2 = await response2.json();
+    console.log(data2);
+          
+    for (let i = x; i < (x+4); i++) {
+      characterName = data2.actors[i].asCharacter;
+      actorName = data2.actors[i].name;
+      actorImage = data2.actors[i].image;
+      console.log(actorName);
+      let actorNameArray = actorName.split(" ");
+      console.log(actorNameArray);
+      let actorFirstName = actorNameArray[0];
+      let actorLastName = actorNameArray.slice(-1);
+      console.log(actorLastName);
+      await getActorID(actorFirstName, actorLastName);
+    }
+  })
+  
+
 
 // Fetches the list of actor's from the user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
@@ -49,9 +74,6 @@ async function getIMDBApi(new_data) {
   }     
 }
 
-// function showError() {
-//   $("#error-modal").style.display = "block"
-//   }
 
 async function getActorList() {
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_klb075h2/${movieId}`;
@@ -116,3 +138,6 @@ function renderCard() {
   $(".row1").append(output);
 }
 
+// To do:
+// Fix the search history function 
+// Create a modal 
