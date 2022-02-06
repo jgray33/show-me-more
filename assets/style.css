@@ -59,7 +59,7 @@ h1 {
 }
 
 #actors-card {
-    background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65));
+    /* background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65)); */
     width: 900px;
     height: 460px;
     border-radius: 6px;
@@ -203,8 +203,9 @@ h1 {
 }
  
 
-.search-history-box, #movieSearch{
+.search-history-box, #userMovieSearch{
     color: white;
+       margin: 1%;
 }
 
 
