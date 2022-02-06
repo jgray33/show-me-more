@@ -39,6 +39,7 @@ $("#search-bttn").click(function(){
       getIMDBApi(new_data)
 })
 
+//Search History 
 
 
     // $("#searchList").append(
