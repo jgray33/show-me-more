@@ -59,7 +59,6 @@ h1 {
             transform: translateX(-0.5rem);
     min-width: 15vw;
 }
-
   
 @media print, screen and (min-width: 40em) {
     #home {
