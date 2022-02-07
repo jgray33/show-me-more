@@ -38,8 +38,6 @@ async function getIMDBApi(new_data) {
   getActorList(movieId);
 }
 
-
-
 async function getActorList() {
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_klb075h2/${movieId}`;
   let response2 = await fetch(getFullCast);
@@ -80,9 +78,6 @@ $("#search-bttn").click(function(){
       )
       getIMDBApi(new_data)
 })
-
-
-
 
     // $("#searchList").append(
     //   `<li><button id="citySearch btn btn-outline-primary" value=${new_data}> ${new_data} </button></li>`
@@ -136,3 +131,21 @@ function renderCard() {
 // To do:
 // Get the data from the IMDB API
 // 1.
+
+//search history-Fatumo
+let searchHistoryItems = ["Harry Potter","Titanic","Spiderman"]
+
+document.getElementById("search-history-items").append("hello")
+
+let array2 = ["Harry Potter","Titanic","Spiderman"];
+let map2 = array2.forEach(item =>  document.getElementById("search-history-items").append(`<li><button class="search-history-btn">${item}</button></li>`);
+
+let array2 = ["Harry Potter","Titanic","Spiderman"];
+let map2 = array2.forEach(item =>  document.getElementById("search-history-items").append(`<li><button class="search-history-btn">${item}</button></li>`));
+
+let array2 = ["Harry Potter","Titanic","Spiderman"];
+let map2 = array2.forEach(item =>  document.getElementById("search-history-items").innerHTML= `<li><button class="search-history-btn">${item}</button></li>`);
+
+let array2 = ["Harry Potter","Titanic","Spiderman"];
+let map2 = array2.map(item => `<li><button class="search-history-btn">${item}</button></li>`);
+document.getElementById("search-history-items").innerHTML= map2

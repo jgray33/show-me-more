@@ -57,8 +57,7 @@ h1 {
     border-radius: 5000px;
     min-width: 15vw;
 }
-
-<<<<<<< HEAD
+/* No search result modal */
 .modal {
     display: none;
     position: fixed;
@@ -77,18 +76,12 @@ h1 {
     border: 1px solid #888;
     width: 80%;
 }
+
   
 @media print, screen and (min-width: 40em) {
     #home {
       padding: 0 3rem;
     }
-=======
-#actors-card {
-    background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65));
-    width: 900px;
-    height: 460px;
-    border-radius: 6px;
->>>>>>> b06edc05fe49150686b42144b783e655d2ca57a9
 }
 
 .row1 {
@@ -175,8 +168,14 @@ h1 {
     margin-top: 111px;
     margin-left: 51px;
   }
+/* search history-fatumo */
 
-  
+  .search-history-btn {
+      color: white;
+      border:1px solid white;
+      padding: 4px 8px;
+  }
+
 @media print, screen and (max-width: 810px) {
     html, body {
         background-repeat: repeat;
