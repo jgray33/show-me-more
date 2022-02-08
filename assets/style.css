@@ -1,0 +1,233 @@
+html, body {
+    box-sizing: border-box;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/883/883/818/movie-collage-wallpaper-preview.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100%;
+    font-size: 16px;
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home {
+    background: "";
+    height: 50%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+h1 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#home .input-group-field {
+    border-radius: 5000px 0 0 5000px;
+    position: relative;
+    width: 102%;
+    -webkit-transform: translateX(0.5rem);
+        -ms-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
+}
+
+  
+#home .input-group {
+    margin-bottom: 0;
+}
+  
+#home .home-inner {
+    text-align: center;
+}
+  
+#home .input-group-button .button {
+    position: relative;
+    border-radius: 5000px;
+    min-width: 15vw;
+}
+
+#actors-card {
+    background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65));
+    width: 900px;
+    height: 360px;
+    border-radius: 6px;
+}
+
+.row1 {
+    display: flex;
+    margin-top: 15px;
+}
+
+.image-hover-wrapper {
+    position: relative;
+    flex: 10%;
+    padding: 5px;
+  }
+  
+  .image-hover-wrapper a {
+    display: inline-block;
+    letter-spacing: normal;
+    line-height: initial;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  
+  .image-hover-wrapper a img {
+    float: left;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px #463b3b;
+    margin-top: 22.5px;
+  }
+  
+  .image-hover-wrapper a .image-hover-wrapper-reveal {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fefefe;
+    display: inline;
+    height: 301px;
+    margin-left: -100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 80;
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: 0.25s;
+    margin-top: 22px;
+  }
+  
+  .image-hover-wrapper a .image-hover-wrapper-reveal:hover {
+    opacity: 1;
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .image-hover-wrapper a .image-hover-wrapper-reveal:hover p {
+    opacity: 1;
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: 0.25s;
+  }
+  
+  .image-hover-wrapper a .image-hover-wrapper-reveal p {
+    bottom: 75px;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .image-hover-wrapper a .fa {
+    font-size: 24px;
+  }
+  
+  .image-hover-wrapper .image-hover-wrapper-banner {
+    background-color: rgba(23, 121, 186, 0.8);
+    color: #fefefe;
+    font-weight: 600;
+    left: 0;
+    padding: 0.5rem;
+    position: absolute;
+    top: 25%;
+    width: 215px;
+    z-index: 10;
+    margin-top: 205px;
+    margin-left: 5px;
+  }
+
+  
+@media print, screen and (max-width: 810px) {
+    html, body {
+        background-repeat: repeat;
+    }
+    #home {
+      padding: 0 6rem;
+    }
+    .home-inner h1 {
+        font-size: 100%;
+    }
+    #home .input-group {
+        margin-bottom: 0;
+        width: 75%;
+        margin-left: 100px;
+    }
+    #actors-card {
+        background: none;
+    }
+    .row1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .image-hover-wrapper a img {
+        width: 300px;
+    }
+    .image-hover-wrapper .image-hover-wrapper-banner {
+        width: 400px;
+        margin-top: 263px;
+        margin-left: 250px;
+    }
+}
+  
+@media print, screen and (max-width: 480px) {
+    #home .input-group {
+        margin-bottom: 0;
+        width: 46%;
+        margin-left: 237px;
+      }
+      
+    .image-hover-wrapper a img {
+        width: 330px;
+    }
+    .image-hover-wrapper .image-hover-wrapper-banner {
+        width: 330px;
+        margin-top: 210px;
+        margin-left: 285px;
+    }
+
+}
+ 
+
+.search-history-box, #userMovieSearch{
+    color: white;
+       margin: 1%;
+}
+
+
+/* Image resizing  */
+.container {
+    width: 200px;
+    height: 250px;
+    
+}
+
+/* Resize images */
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+#next-page{
+    color: white;
+}
