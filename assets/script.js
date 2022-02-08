@@ -79,9 +79,9 @@ $("#search-bttn").click(function(){
       getIMDBApi(new_data)
 })
 
-    // $("#searchList").append(
-    //   `<li><button id="citySearch btn btn-outline-primary" value=${new_data}> ${new_data} </button></li>`
-    // );
+    $("#searchList").append(
+      `<li><button id="citySearch btn btn-outline-primary" value=${new_data}> ${new_data} </button></li>`
+    );
     
 
  
@@ -123,6 +123,17 @@ function renderCard() {
   $(".row1").append(output);
 }
 
+//Modal-Fatumo
+const open = document.getElementsById("open");
+const modal_container = document.getElementById("modal-container");
+const close = document.getElementById("close");
+
+//event listener on search
+open.addEventListener('click', () => {
+    modal_container.classList.add('show');
+})
+
+
 // Get the names of the actor's in the film from a movie search
 // Get the actor's iod from TMDB
 // Plug in that ID into TBDB to get their twitter handle
@@ -132,20 +143,3 @@ function renderCard() {
 // Get the data from the IMDB API
 // 1.
 
-//search history-Fatumo
-let searchHistoryItems = ["Harry Potter","Titanic","Spiderman"]
-
-document.getElementById("search-history-items").append("hello")
-
-let array2 = ["Harry Potter","Titanic","Spiderman"];
-let map2 = array2.forEach(item =>  document.getElementById("search-history-items").append(`<li><button class="search-history-btn">${item}</button></li>`);
-
-let array2 = ["Harry Potter","Titanic","Spiderman"];
-let map2 = array2.forEach(item =>  document.getElementById("search-history-items").append(`<li><button class="search-history-btn">${item}</button></li>`));
-
-let array2 = ["Harry Potter","Titanic","Spiderman"];
-let map2 = array2.forEach(item =>  document.getElementById("search-history-items").innerHTML= `<li><button class="search-history-btn">${item}</button></li>`);
-
-let array2 = ["Harry Potter","Titanic","Spiderman"];
-let map2 = array2.map(item => `<li><button class="search-history-btn">${item}</button></li>`);
-document.getElementById("search-history-items").innerHTML= map2
