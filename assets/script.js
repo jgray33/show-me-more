@@ -8,6 +8,7 @@ let movieId;
 // When the search button is pressed, user's search adds to search history and triggers the search -------------------------------
 $("#search-bttn").click(function () {
     $("#actors-card").removeClass("hide")
+    $(".row1").html("")
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
   if (localStorage.getItem("movieSearch") == null) {
@@ -42,7 +43,7 @@ $("#next-page").on("click",  async function nextPage() {
     let response2 = await fetch(getFullCast);
     let data2 = await response2.json();
     console.log(data2);
-          
+    $(".row1").html("")
     for (let i = x; i < (x+4); i++) {
       characterName = data2.actors[i].asCharacter;
       actorName = data2.actors[i].name;
@@ -57,8 +58,6 @@ $("#next-page").on("click",  async function nextPage() {
     }
   })
   
-
-
 // Fetches the list of actor's from the user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
   try{ 
@@ -80,7 +79,7 @@ async function getActorList() {
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
-
+  
   //   Go through the actor list
   for (let i = 0; i < 4; i++) {
     characterName = data2.actors[i].asCharacter;
@@ -121,7 +120,7 @@ async function getTwitterID(actorID) {
 }
 
 function renderCard() {
- 
+
     let output = `    <div class=" actor-card image-hover-wrapper column">
             <span class="image-hover-wrapper-banner">${characterName}</span>
               <span class="image-hover-wrapper-banner">${actorName}</span>
