@@ -61,7 +61,7 @@ h1 {
 #actors-card {
     background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65));
     width: 900px;
-    height: 460px;
+    height: 360px;
     border-radius: 6px;
 }
 
@@ -88,16 +88,18 @@ h1 {
   .image-hover-wrapper a img {
     float: left;
     overflow: hidden;
-    width: 197px;
+    width: 300px;
+    height: 300px;
     border-radius: 3px;
     box-shadow: 3px 3px 5px #463b3b;
+    margin-top: 22.5px;
   }
   
   .image-hover-wrapper a .image-hover-wrapper-reveal {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fefefe;
     display: inline;
-    height: 100%;
+    height: 301px;
     margin-left: -100%;
     opacity: 0;
     position: absolute;
@@ -105,6 +107,7 @@ h1 {
     z-index: 80;
     transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transition-delay: 0.25s;
+    margin-top: 22px;
   }
   
   .image-hover-wrapper a .image-hover-wrapper-reveal:hover {
@@ -122,7 +125,7 @@ h1 {
   }
   
   .image-hover-wrapper a .image-hover-wrapper-reveal p {
-    bottom: 0;
+    bottom: 75px;
     display: block;
     opacity: 0;
     position: absolute;
@@ -144,10 +147,10 @@ h1 {
     padding: 0.5rem;
     position: absolute;
     top: 25%;
-    width: 66%;
+    width: 215px;
     z-index: 10;
-    margin-top: 111px;
-    margin-left: 51px;
+    margin-top: 205px;
+    margin-left: 5px;
   }
 
   

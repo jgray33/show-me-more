@@ -88,12 +88,10 @@ async function getTwitterID(actorID) {
 function renderCard() {
   let output = `    <div class="image-hover-wrapper column">
             <span class="image-hover-wrapper-banner">${characterName}</span>
-              <span class="image-hover-wrapper-banner">${actorName}</span>
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
                   <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${twitterHandle}</i></p>
-                  <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${instagramHandle}</i></p>
-
+                  <p>Check it<br><i class="fab fa-instagram" aria-hidden="true">${instagramHandle}</i></p>
                 </span>
               </a>
             </div>
