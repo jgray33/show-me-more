@@ -172,13 +172,13 @@ h1 {
     #actors-card {
         background: none;
     }
-    .row {
+    .row1 {
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
     .image-hover-wrapper a img {
-        width: 400px;
+        width: 300px;
     }
     .image-hover-wrapper .image-hover-wrapper-banner {
         width: 400px;
