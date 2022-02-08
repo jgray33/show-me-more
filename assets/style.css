@@ -203,7 +203,28 @@ h1 {
 }
  
 
-.search-history-box, #movieSearch{
+.search-history-box, #userMovieSearch{
     color: white;
+       margin: 1%;
 }
 
+
+/* Image resizing  */
+.container {
+    width: 200px;
+    height: 250px;
+    
+}
+
+/* Resize images */
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+#next-page{
+    color: white;
+}
