@@ -39,7 +39,7 @@ let clickCount = 0
 $("#next-page").on("click",  async function nextPage() {
   let newClickCount = clickCount++
   let x = (clickCount*4)
-    let getFullCast = `https://imdb-api.com/en/API/FullCast/k_klb075h2/${movieId}`;
+    let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
     let response2 = await fetch(getFullCast);
     let data2 = await response2.json();
     console.log(data2);
@@ -61,7 +61,7 @@ $("#next-page").on("click",  async function nextPage() {
 // Fetches the list of actor's from the user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
   try{ 
-  let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_klb075h2/${new_data}`;
+  let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5zx1v7j/${new_data}`;
   let response = await fetch(requestUrl);
   let data = await response.json()
 
@@ -75,7 +75,7 @@ async function getIMDBApi(new_data) {
 
 
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_klb075h2/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -123,13 +123,10 @@ function renderCard() {
 
     let output = `    <div class=" actor-card image-hover-wrapper column">
             <span class="image-hover-wrapper-banner">${characterName}</span>
-              <span class="image-hover-wrapper-banner">${actorName}</span>
-              <div class ="container">
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
-                  <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${twitterHandle}</i></p>
-                  <p>Check it<br><i class="fab fa-twitter" aria-hidden="true">${instagramHandle}</i></p>
-
+                  <p>${twitterHandle}<i class="fab fa-twitter" aria-hidden="true"></i></p><br><br>
+                  <p><i class="fab fa-instagram" aria-hidden="true">${instagramHandle}</i></p>
                 </span>
               </a>
             </div>
