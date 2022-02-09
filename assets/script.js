@@ -4,10 +4,11 @@ let twitterHandle;
 let actorImage;
 let movieId;
 
+showSearchHistory()
+
 // When the search button is pressed, user's search adds to search history and triggers the search -------------------------------
 $("#search-bttn").click(function () {
-  $("#actors-card").removeClass("hide");
-  $(".row1").html("");
+   $(".row1").html("");
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
   if (localStorage.getItem("movieSearch") == null) {
@@ -21,23 +22,34 @@ $("#search-bttn").click(function () {
   $(".search-history-box").append(
     `<li><button class="userMovieSearch hollow button secondary value="${new_data}"> ${new_data} </button></li>`
   );
-  $(".userMovieSearch").on("click", searchMovieAgain());
+  $(".userMovieSearch").on("click", function(){
+    console.log("clicked it again")
+  });
   getIMDBApi(new_data);
 });
 
-function searchMovieAgain() {
-  console.log("Clicked search again");
-  // $("#search-field").val("")
-  // $("#search-field").val(event.target.value)
-  // getIMDBApi()
+// Loads the user's search history and removes duplicates -------------------------------------------
+function showSearchHistory() {
+  let userMovieSearch = JSON.parse(localStorage.getItem("movieSearch"));
+  let uniqueSearches = []
+  userMovieSearch.forEach((element) => {
+    if (!uniqueSearches.includes(element)) {
+      uniqueSearches.push(element)}
+      })
+      for (let i = 0; i < 5; i++) {
+  $(".search-history-box").append(
+    `<li><button class="userMovieSearch hollow button secondary value="${uniqueSearches[i]}"> ${uniqueSearches[i]} </button></li>`
+  )
+  }
 }
+
 
 //  Searches for the next for actors once clicked on the "next page button"
 let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -60,22 +72,23 @@ $("#next-page").on("click", async function nextPage() {
 async function getIMDBApi(new_data) {
   $(".movieSearchList").html("");
   try {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5zx1v7j/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
 
     let moviesList = data.results;
     for (let i = 0; i < 5; i++) {
       $(".movieSearchList").append(
-        `<li><button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} </button></li>`
-      );
-      $(".otherMovieTitles").on("click", (event) => {
-        $(".row1").html("")
-        $(".movieSearchList").html("");
-        let newSearch = this.event.target.value;
-        getIMDBApi(newSearch);
-      });
+        `<li><button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button></li>`
+      )
     }
+    $(".otherMovieTitles").on("click", (event) => {
+      let newSearch = this.event.target.value
+      console.log(newSearch)
+      $(".row1").html("")
+      $(".movieSearchList").html("");
+      getIMDBApi(newSearch);
+    })
 
     console.log(data);
     console.log(data.results);
@@ -87,8 +100,10 @@ async function getIMDBApi(new_data) {
   }
 }
 
+
+
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
