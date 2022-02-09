@@ -122,17 +122,9 @@ function renderCard() {
     `;
   $(".row1").append(output);
 }
-
-//Modal-Fatumo
-const open = document.getElementsById("open");
-const modal_container = document.getElementById("modal-container");
-const close = document.getElementById("close");
-
-//event listener on search
-open.addEventListener('click', () => {
-    modal_container.classList.add('show');
-})
-
+function openModal () {
+  document.querySelector('.modal_container')
+}
 
 // Get the names of the actor's in the film from a movie search
 // Get the actor's iod from TMDB
