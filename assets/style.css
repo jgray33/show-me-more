@@ -208,12 +208,18 @@ h1 {
         margin-left: 285px;
     }
 
-}
- 
-.search-history-box, .userMovieSearch{
+
+.search-history-box{
     color: white;
-       margin: 2%;
-       padding: 2%;
+}
+
+.search-history{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
 }
 
 
