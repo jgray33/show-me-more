@@ -170,9 +170,13 @@ function showSearchHistory() {
         `<li><button class="userMovieSearch hollow button secondary value="${newUS[i]}"> ${newUS[i]} </button></li>`
       );
     }
-  }}
+    }
+  $(".userMovieSearch").on("click", event => {
+    console.log("search history clicked")
+    console.log(this.event.target.value)
+  })}
 }
 
 // To do:
-// Fix the search history function
-// Create a modal
+// Fix the search history buttons
+// Fix the "did you mean list"
