@@ -212,6 +212,10 @@ h1 {
 }
 
 
+.search-history{
+    color:pink;
+}
+
 /* Image resizing  */
 .container {
     width: 200px;
@@ -231,3 +235,4 @@ h1 {
 #next-page{
     color: white;
 }
+
