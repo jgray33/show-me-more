@@ -4,11 +4,10 @@ let twitterHandle;
 let actorImage;
 let movieId;
 
-
 // When the search button is pressed, user's search adds to search history and triggers the search -------------------------------
 $("#search-bttn").click(function () {
-    $("#actors-card").removeClass("hide")
-    $(".row1").html("")
+  $("#actors-card").removeClass("hide");
+  $(".row1").html("");
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
   if (localStorage.getItem("movieSearch") == null) {
@@ -22,80 +21,78 @@ $("#search-bttn").click(function () {
   $(".search-history-box").append(
     `<li><button class="userMovieSearch hollow button secondary value="${new_data}"> ${new_data} </button></li>`
   );
-  $(".userMovieSearch").on("click", searchMovieAgain())
+  $(".userMovieSearch").on("click", searchMovieAgain());
   getIMDBApi(new_data);
 });
 
-
-
-
-
-
 function searchMovieAgain() {
-  console.log("Clicked search again")
+  console.log("Clicked search again");
   // $("#search-field").val("")
   // $("#search-field").val(event.target.value)
   // getIMDBApi()
 }
 
-
 //  Searches for the next for actors once clicked on the "next page button"
-let clickCount = 0
-$("#next-page").on("click",  async function nextPage() {
-  let newClickCount = clickCount++
-  let x = (clickCount*4)
-    let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
-    let response2 = await fetch(getFullCast);
-    let data2 = await response2.json();
-    console.log(data2);
-    $(".row1").html("")
-    for (let i = x; i < (x+4); i++) {
-      characterName = data2.actors[i].asCharacter;
-      actorName = data2.actors[i].name;
-      actorImage = data2.actors[i].image;
-      console.log(actorName);
-      let actorNameArray = actorName.split(" ");
-      console.log(actorNameArray);
-      let actorFirstName = actorNameArray[0];
-      let actorLastName = actorNameArray.slice(-1);
-      console.log(actorLastName);
-      await getActorID(actorFirstName, actorLastName);
-    }
-  })
-  
+let clickCount = 0;
+$("#next-page").on("click", async function nextPage() {
+  let newClickCount = clickCount++;
+  let x = clickCount * 4;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
+  let response2 = await fetch(getFullCast);
+  let data2 = await response2.json();
+  console.log(data2);
+  $(".row1").html("");
+  for (let i = x; i < x + 4; i++) {
+    characterName = data2.actors[i].asCharacter;
+    actorName = data2.actors[i].name;
+    actorImage = data2.actors[i].image;
+    console.log(actorName);
+    let actorNameArray = actorName.split(" ");
+    console.log(actorNameArray);
+    let actorFirstName = actorNameArray[0];
+    let actorLastName = actorNameArray.slice(-1);
+    console.log(actorLastName);
+    await getActorID(actorFirstName, actorLastName);
+  }
+});
+
 // Fetches the list of actor's from the user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
-  try{ 
-  let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
-  let response = await fetch(requestUrl);
-  let data = await response.json()
+  $(".movieSearchList").html("");
+  try {
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
+    let response = await fetch(requestUrl);
+    let data = await response.json();
 
-let moviesList = data.results
-for (let i = 0; i < 5; i++) {
-      $(".movieSearchList").append(   
-         `<li><button class="hollow button secondary value="${moviesList[i].title}"> ${moviesList[i].title} </button></li>`
-      )
-         
+    let moviesList = data.results;
+    for (let i = 0; i < 5; i++) {
+      $(".movieSearchList").append(
+        `<li><button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} </button></li>`
+      );
+      $(".otherMovieTitles").on("click", (event) => {
+        $(".row1").html("")
+        $(".movieSearchList").html("");
+        let newSearch = this.event.target.value;
+        getIMDBApi(newSearch);
+      });
+    }
+
+    console.log(data);
+    console.log(data.results);
+    movieId = data.results[0].id;
+    getActorList(movieId);
+  } catch (showError) {
+    console.log(showError);
+    console.log("not a film");
   }
-
-
-  console.log(data);
-  console.log(data.results)
-  movieId = data.results[0].id;  
-  getActorList(movieId)
- } catch(showError) {
-   console.log(showError)
-      console.log("not a film")
-  }     
 }
-
 
 async function getActorList() {
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
-  
+
   //   Go through the actor list
   for (let i = 0; i < 4; i++) {
     characterName = data2.actors[i].asCharacter;
@@ -104,7 +101,6 @@ async function getActorList() {
     console.log(actorName);
     let actorNameArray = actorName.split(" ");
     console.log(actorNameArray);
-
 
     let actorFirstName = actorNameArray[0];
     let actorLastName = actorNameArray.slice(-1);
@@ -132,12 +128,11 @@ async function getTwitterID(actorID) {
   console.log(data);
   instagramHandle = data.instagram_id;
   twitterHandle = data.twitter_id;
-    await renderCard();
+  await renderCard();
 }
 
 function renderCard() {
-
-    let output = `    <div class=" actor-card image-hover-wrapper column">
+  let output = `    <div class=" actor-card image-hover-wrapper column">
             <span class="image-hover-wrapper-banner">Character Name: ${characterName}</span>
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
@@ -151,5 +146,5 @@ function renderCard() {
 }
 
 // To do:
-// Fix the search history function 
-// Create a modal 
+// Fix the search history function
+// Create a modal
