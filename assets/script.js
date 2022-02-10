@@ -121,7 +121,13 @@ async function getTwitterID(actorID) {
 
 function renderCard() {
 
-    let output = `    <div class=" actor-card image-hover-wrapper column">
+    let output = `    <div class="orbit-wrapper">
+            <div class="orbit-controls">
+              <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+              <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+            </div>
+  
+           <div class=" actor-card image-hover-wrapper column">
             <span class="image-hover-wrapper-banner">${characterName}</span>
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
@@ -131,6 +137,7 @@ function renderCard() {
                 </span>
               </a>
             </div>
+          </div>
     `;
   $(".row1").append(output);
 }

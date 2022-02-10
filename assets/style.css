@@ -63,6 +63,7 @@ h1 {
     width: 900px;
     height: 400px;
     border-radius: 6px;
+    margin-top: 15px;
 }
 
 .row1 {
@@ -179,6 +180,7 @@ h1 {
         justify-content: center;
         flex-direction: column;
     }
+
     .image-hover-wrapper a img {
         width: 300px;
         margin-bottom: 25px;
