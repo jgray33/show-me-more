@@ -121,15 +121,24 @@ async function getTwitterID(actorID) {
 
 // Renders the actor's card pulling in all the information fetched from the APIs
 function renderCard() {
-  let output = `    <div class=" actor-card image-hover-wrapper column">
-            <span class="image-hover-wrapper-banner">Character Name: ${characterName}</span>
+
+    let output = `    <div class="orbit-wrapper">
+            <div class="orbit-controls">
+              <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+              <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+            </div>
+  
+           <div class=" actor-card image-hover-wrapper column">
+            <span class="image-hover-wrapper-banner">${characterName}</span>
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
+                <h2>${actorName}</h2>
                   <p><i class="fab fa-twitter" aria-hidden="true"></i>&nbsp;${twitterHandle}</p><br><br>
                   <p><i class="fab fa-instagram" aria-hidden="true">&nbsp;${instagramHandle}</i></p>
                 </span>
               </a>
             </div>
+          </div>
     `;
   $(".row1").append(output);
 }
