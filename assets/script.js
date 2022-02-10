@@ -106,7 +106,16 @@ async function getTwitterID(actorID) {
   console.log(data);
   instagramHandle = data.instagram_id;
   twitterHandle = data.twitter_id;
-  await renderCard();
+
+let requestUrl2 = `https://api.themoviedb.org/3/person/${actorID}?api_key=7fcabf766db7f48c8e77b585913f04f8&language=en-US`
+let response2 = await fetch(requestUrl2)
+let data2 = await response2.json()
+console.log(data2)
+actorBday = data2.birthday
+actorPOB = data2.place_of_birth
+console.log(actorBday)
+console.log(actorPOB)
+ await renderCard();
 }
 
 // Renders the actor's card pulling in all the information fetched from the APIs
