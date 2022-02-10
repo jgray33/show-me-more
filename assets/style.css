@@ -58,6 +58,11 @@ h1 {
     min-width: 15vw;
 }
 
+#next-page{
+     float: right;
+    margin-top: 150px;
+}
+
 #actors-card {
     background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65));
     width: 900px;
@@ -208,12 +213,18 @@ h1 {
         margin-left: 285px;
     }
 
-}
- 
 
-.search-history-box, #userMovieSearch{
+.search-history-box{
     color: white;
-       margin: 1%;
+}
+
+.search-history{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
 }
 
 
