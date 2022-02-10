@@ -3,6 +3,8 @@ let characterName;
 let twitterHandle;
 let actorImage;
 let movieId;
+let actorBday;
+let actorPOB;
 
 showSearchHistory();
 
@@ -177,16 +179,17 @@ function showSearchHistory() {
       console.log(newUS)
         for (let i = 0; i < newUS.length; i++) {
       $(".search-history-box").append(
-        `<li><button class="userMovieSearch hollow button secondary value="${newUS[i]}"> ${newUS[i]} </button></li>`
+        `<li><button class="userMovieSearch hollow button secondary" value="${newUS[i]}"> ${newUS[i]} </button></li>`
       );
     }
     }
   $(".userMovieSearch").on("click", event => {
     console.log("search history clicked")
-    console.log(this.event.target.value)
-  })}
+    $("#search-field").val("")
+    $("#search-field").val(this.event.target.value)
+    getIMDBApi(this.event.target.value)
+          })}
 }
 
 // To do:
 // Fix the search history buttons
-// 
