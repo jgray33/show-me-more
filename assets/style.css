@@ -64,8 +64,8 @@ h1 {
 }
 
 #actors-card {
-    background: linear-gradient(135deg, hsla(240, 3%, 14%, 0.76), hsla(132, 26%, 96%, 0.65));
     width: 900px;
+    
     height: 400px;
     border-radius: 6px;
     margin-top: 15px;
@@ -75,90 +75,8 @@ h1 {
     display: flex;
 }
 
-.image-hover-wrapper {
-    position: relative;
-    flex: 10%;
-    padding: 5px;
-  }
-  
-  .image-hover-wrapper a {
-    display: inline-block;
-    letter-spacing: normal;
-    line-height: initial;
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
-  
-  .image-hover-wrapper a img {
-    float: left;
-    overflow: hidden;
-    width: 300px;
-    height: 300px;
-    border-radius: 3px;
-    box-shadow: 3px 3px 5px #463b3b;
-    margin-top: 22.5px;
-  }
-  
-  .image-hover-wrapper a .image-hover-wrapper-reveal {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fefefe;
-    display: inline;
-    height: 301px;
-    margin-left: -100%;
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 80;
-    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transition-delay: 0.25s;
-    margin-top: 22px;
-  }
-  
-  .image-hover-wrapper a .image-hover-wrapper-reveal:hover {
-    opacity: 1;
-    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .image-hover-wrapper a .image-hover-wrapper-reveal:hover p {
-    opacity: 1;
-    -webkit-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-            transform: translateY(-100%);
-    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transition-delay: 0.25s;
-  }
-  
-  .image-hover-wrapper a .image-hover-wrapper-reveal p {
-    bottom: 80px;
-    display: block;
-    opacity: 0;
-    position: absolute;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .image-hover-wrapper a .fa {
-    font-size: 24px;
-  }
-  
-  .image-hover-wrapper .image-hover-wrapper-banner {
-    background-color: rgba(246, 250, 253, 0.8);
-    color: #000;
-    font-weight: 600;
-    left: 0;
-    padding: 0.5rem;
-    position: absolute;
-    top: 25%;
-    width: 215px;
-    z-index: 10;
-    margin-top: 244px;
-    margin-left: 5px;
-  }
 
-  .userMovieSearch {
+    .userMovieSearch {
       background-color: bisque;
   }
   
@@ -185,16 +103,6 @@ h1 {
         justify-content: center;
         flex-direction: column;
     }
-
-    .image-hover-wrapper a img {
-        width: 300px;
-        margin-bottom: 25px;
-    }
-    .image-hover-wrapper .image-hover-wrapper-banner {
-        width: 300px;
-        margin-top: 238px;
-        margin-left: 300px;
-    }
 }
   
 @media print, screen and (max-width: 480px) {
@@ -204,14 +112,7 @@ h1 {
         margin-left: 237px;
       }
       
-    .image-hover-wrapper a img {
-        width: 330px;
-    }
-    .image-hover-wrapper .image-hover-wrapper-banner {
-        width: 330px;
-        margin-top: 238px;
-        margin-left: 285px;
-    }
+   
 
 
 .search-history-box{
@@ -229,11 +130,10 @@ h1 {
 
 
 /* Image resizing  */
-.container {
+.card-divider {
     width: 200px;
     height: 250px;
-    
-}
+    }
 
 /* Resize images */
 .container img {
@@ -244,6 +144,7 @@ h1 {
 }
 
 
-#next-page{
+/* #next-page{
     color: white;
-}
+} */
+

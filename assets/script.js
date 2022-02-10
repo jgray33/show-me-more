@@ -37,7 +37,7 @@ async function getIMDBApi(new_data) {
   showSearchHistory();
   $(".movieSearchList").html("");
   try {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5zx1v7j/${new_data}`;
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_hv6722ug/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
@@ -68,7 +68,7 @@ async function getIMDBApi(new_data) {
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_hv6722ug/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -122,24 +122,21 @@ async function getTwitterID(actorID) {
 // Renders the actor's card pulling in all the information fetched from the APIs
 function renderCard() {
 
-    let output = `    <div class="orbit-wrapper">
-            <div class="orbit-controls">
-              <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-              <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-            </div>
-  
-           <div class=" actor-card image-hover-wrapper column">
-            <span class="image-hover-wrapper-banner">${characterName}</span>
-              <a href=""><img src="${actorImage}">
-                <span class="image-hover-wrapper-reveal">
-                <h2>${actorName}</h2>
-                  <p><i class="fab fa-twitter" aria-hidden="true"></i>&nbsp;${twitterHandle}</p><br><br>
-                  <p><i class="fab fa-instagram" aria-hidden="true">&nbsp;${instagramHandle}</i></p>
-                </span>
-              </a>
-            </div>
-          </div>
-    `;
+    let output = `
+   <div class="card" style="width: 300px;">
+  <div class="card-divider">
+    <h4>${characterName}</h4>
+  </div>
+    <img src=${actorImage}>
+    <div class="card-section">
+    <p> Actor name: ${actorName}</p>
+    <p> Date of birth: ${actorBday}</p>
+    <p> Place of birth: ${actorPOB}</p>
+    <p> Twitter: ${twitterHandle}</p>
+    <p> Instagram: ${instagramHandle}</p>
+  </div>
+</div>
+               `;
   $(".row1").append(output);
 }
 
@@ -148,7 +145,7 @@ let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_hv6722ug/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -171,7 +168,7 @@ $("#next-page").on("click", async function nextPage() {
 $("#previous-page").on("click", async function previousPage() {
   let newClickCount = clickCount--;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_hv6722ug/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -211,7 +208,7 @@ function showSearchHistory() {
         $(".search-history-box").append(
           `<li><button class="userMovieSearch hollow button secondary" value="${newUS[i]}"> ${newUS[i]} </button></li>`
         );
-      }
+      } 
     }
     $(".userMovieSearch").on("click", (event) => {
       console.log("search history clicked");
