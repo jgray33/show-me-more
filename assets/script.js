@@ -20,7 +20,7 @@ $("#search-bttn").click(function () {
   let userMovieSearch = JSON.parse(localStorage.getItem("movieSearch"));
   console.log(userMovieSearch);
   $(".search-history-box").append(
-    `<li><button class="userMovieSearch hollow button secondary value="${new_data}"> ${new_data} </button></li>`
+    `<li><button class="userMovieSearch button secondary value="${new_data}"> ${new_data} </button></li>`
   );
   getIMDBApi(new_data);
 });
@@ -125,8 +125,9 @@ function renderCard() {
             <span class="image-hover-wrapper-banner">${characterName}</span>
               <a href=""><img src="${actorImage}">
                 <span class="image-hover-wrapper-reveal">
-                  <p>${twitterHandle}<i class="fab fa-twitter" aria-hidden="true"></i></p><br><br>
-                  <p><i class="fab fa-instagram" aria-hidden="true">${instagramHandle}</i></p>
+                <h2>${actorName}</h2>
+                  <p><i class="fab fa-twitter" aria-hidden="true"></i>&nbsp;${twitterHandle}</p><br><br>
+                  <p><i class="fab fa-instagram" aria-hidden="true">&nbsp;${instagramHandle}</i></p>
                 </span>
               </a>
             </div>
