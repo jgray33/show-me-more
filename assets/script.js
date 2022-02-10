@@ -31,7 +31,7 @@ $("#search-bttn").click(function (){
 //   }
 
 
-// Fetches the list of actor's from the user's search using IMDI API ----------------------------
+// Fetches the movie ID user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
   $(".search-history-box").html("")
   showSearchHistory()
@@ -55,7 +55,6 @@ async function getIMDBApi(new_data) {
       $("#search-field").val(newSearch)
       getIMDBApi($("#search-field").val());
     });
-
     console.log(data);
     console.log(data.results);
     movieId = data.results[0].id;
@@ -66,13 +65,14 @@ async function getIMDBApi(new_data) {
   }
 }
 
+// Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
   let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
 
-  //   Go through the actor list
+  //   Go through the actor list from the movie and attains their first name and last name ---------------------------------------------------
   for (let i = 0; i < 4; i++) {
     characterName = data2.actors[i].asCharacter;
     actorName = data2.actors[i].name;
@@ -87,7 +87,7 @@ async function getActorList() {
   }
 }
 
-// Used the TMDB API to get the Actor's ID -----------------------------------------------
+// Using the actor's name, fetches the actor's ID from TBDM API -----------------------------------------------
 async function getActorID(actorFirstName, actorLastName) {
   let requestUrl = `https://api.themoviedb.org/3/search/person?api_key=7fcabf766db7f48c8e77b585913f04f8&query=${actorFirstName}+${actorLastName}`;
   let response = await fetch(requestUrl);
@@ -98,7 +98,7 @@ async function getActorID(actorFirstName, actorLastName) {
   await getTwitterID(actorID);
 }
 
-// Get the social media handles from the TMDB API ----------------------------------------
+// Get the social media handles from the TMDB API using the actor's ID ----------------------------------------
 async function getTwitterID(actorID) {
   let requestUrl = `https://api.themoviedb.org/3/person/${actorID}/external_ids?api_key=7fcabf766db7f48c8e77b585913f04f8&language=en-US`;
   let response = await fetch(requestUrl);
@@ -109,6 +109,7 @@ async function getTwitterID(actorID) {
   await renderCard();
 }
 
+// Renders the actor's card pulling in all the information fetched from the APIs
 function renderCard() {
   let output = `    <div class=" actor-card image-hover-wrapper column">
             <span class="image-hover-wrapper-banner">Character Name: ${characterName}</span>
@@ -123,7 +124,7 @@ function renderCard() {
   $(".row1").append(output);
 }
 
-//  Searches for the next for actors once clicked on the "next page button"
+//  Searches for the next actors once clicked on the "next page button" --------------------------------------------
 let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
@@ -179,4 +180,4 @@ function showSearchHistory() {
 
 // To do:
 // Fix the search history buttons
-// Fix the "did you mean list"
+// 
