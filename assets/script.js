@@ -70,6 +70,26 @@ async function getIMDBApi(new_data) {
   getActorList(movieId)
  } catch(showError) {
       console.log("not a film")
+      console.log("linked")
+const open = document.getElementById("open");
+const modal =document.getElementById("modal");
+const close =document.getElementById("close");
+
+close.innerHTML = 'Hello mum'
+close.addEventListener('click', function() {
+    console.log('CLICKED')
+})
+
+open.addEventListener('click' , () => {
+console.log("open clicked")
+modal.classList.remove('show');
+})
+
+close.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("clicked")
+    modal.classList.add('hide');
+})
   }     
 }
 
