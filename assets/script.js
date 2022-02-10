@@ -134,6 +134,19 @@ function renderCard() {
   $(".row1").append(output);
 }
 
+const open = document.getElementById("Open");
+const modal_container = document.getElementById("modal-container");
+const close = document.getElementById("close");
+
+open.addEventListener('click' , () => {
+    modal_container.classList.add('show');
+})
+
+close.addEventListener('click' , () => {
+    modal_container.classList.remove('show');
+})
+
+
 // To do:
 // Fix the search history function 
 // Create a modal 
