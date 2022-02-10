@@ -47,13 +47,13 @@ async function getIMDBApi(new_data) {
         `<li><button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button></li>`
       )}
     $(".otherMovieTitles").on("click", (event) => {
-      let newSearch = JSON.stringify(this.event.target.value)
+      let newSearch = this.event.target.value
       console.log((newSearch));
       $(".row1").html("");
       $(".movieSearchList").html("");
       $("#search-field").val("")
       $("#search-field").val(newSearch)
-      getIMDBApi(newSearch);
+      getIMDBApi($("#search-field").val());
     });
 
     console.log(data);
