@@ -5,22 +5,17 @@
   <title>Show me more</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"
     crossorigin="anonymous" />
-
-  <script src="https://kit.fontawesome.com/3bef4499fd.js" crossorigin="anonymous"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
+
   <section id="home" class="layer">
-    <div class="home-inner">
+    <div class="home-inner search-bar-layer">
+
       <h1>Search a for a film or tv series and find the details of your favorite characters</h1>
 
       <!-- Search  bar -->
@@ -33,7 +28,9 @@
       </div>
 
       <!-- Search history -->
-      <div class="search-history"> Search history:
+      <div class="search-history-box">
+        <h2 class="shb"> Search history:<h2>
+        <div class="search-history"> </div>
       </div>
 
       <div class="movieSearchList"> Did you mean? </div>
@@ -46,7 +43,19 @@
         </div>
       </div>
 
-      
+    </div>
+    <!--Modal-->
+    <div id="modal_container" class="modal_container hide">
+      <div id="modal" class="modal">
+        <h1>OOPS!</h1>
+        <p>
+          The film title you have searched for is not in our records. Please check
+          your spelling and try again.
+        </p>
+        <button id="close">Close</button>
+      </div>
+    </div>
+
 
 
   </section>

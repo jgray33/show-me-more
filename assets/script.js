@@ -61,9 +61,19 @@ async function getIMDBApi(new_data) {
     getActorList(movieId);
   } catch (showError) {
     console.log(showError);
-    console.log("not a film");
+    console.log("not a film")
+    let modal = document.querySelector("#modal_container");
+    console.log(modal)
+    modal.classList.remove('hide')
+    const close =document.getElementById("close");
+    close.innerHTML = 'Close'
+    close.addEventListener('click', function() {
+    console.log('CLICKED')
+    modal.classList.add('hide');
+})
+}     
   }
-}
+
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
@@ -166,7 +176,7 @@ $("#next-page").on("click", async function nextPage() {
   }
 });
 
-
+//  Goes to the previous actors when previous clicked 
 $("#previous-page").on("click", async function previousPage() {
   let newClickCount = clickCount--;
   let x = clickCount * 4;
@@ -214,6 +224,7 @@ function showSearchHistory() {
     }
     $(".userMovieSearch").on("click", (event) => {
       console.log("search history clicked");
+      $(".row1").html("")
       $("#search-field").val("");
       $("#search-field").val(this.event.target.value);
       $("#actors-card").removeClass("hide")
