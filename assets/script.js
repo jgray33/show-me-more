@@ -11,7 +11,6 @@ let actorPOB;
 showSearchHistory();
 
 // When the search button is pressed, user's search adds to search history and triggers the search -----------------------------------------
-
 $("#search-bttn").click(function () {
   // ------ Getting the user's search, adding it into local storage, adding it into search history, then plugging into the get IMDBApi ------
   $(".row1").html("");
@@ -132,10 +131,11 @@ function renderCard() {
       </div>
         <div class="card-section">
         <p><b> Actor name:</b> ${actorName}</p>
+        <p><b> Age: </b> </p>
         <p><b> Date of birth:</b> ${actorBday}</p>
         <p><b> Place of birth:</b> ${actorPOB}</p>
-        <p><b> Twitter:</b> ${twitterHandle}</p>
-        <p><b> Instagram:</b> ${instagramHandle}</p>
+        <p><b> Twitter:</b><a href="https://twitter.com/${twitterHandle}" target="_blank"> ${twitterHandle}</a></p>
+        <p><b> Instagram:</b><a href="https://instagram.com/${instagramHandle}" target="_blank"> ${instagramHandle}</a></p>
       </div>
     </div>
                `;
