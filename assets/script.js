@@ -1,4 +1,4 @@
-let apiKey = "k_faz1hkma"
+let apiKey = "_faz1hkma"
 
 let actorName;
 let characterName;
@@ -218,7 +218,7 @@ function showSearchHistory() {
       console.log(newUS);
       for (let i = 0; i < newUS.length; i++) {
         $(".search-history").append(
-          `<button class="userMovieSearch" value="${newUS[i]}"> ${newUS[i]} </button>`
+          `<li class="userMovieSearch" value="${newUS[i]}"> ${newUS[i]} </li>`
         );
       } 
     }

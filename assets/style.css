@@ -74,6 +74,8 @@ h1 {
   font-size: 0.5em;
   cursor: pointer;
   text-decoration: underline;
+list-style-type:none;
+text-transform: capitalize;
   }
 
  
