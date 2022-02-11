@@ -254,7 +254,7 @@ button {
     padding: 10px 25px;
 }
 
-.modal_container {
+.modal_container .show {
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
@@ -284,6 +284,7 @@ button {
 }
 .show{
     background-color: rgba(255, 0, 0, 0.877);
+
 }
 
 .hide{

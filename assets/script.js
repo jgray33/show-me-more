@@ -68,29 +68,10 @@ async function getIMDBApi(new_data) {
   console.log(data);
   movieId = data.results[0].id;
   getActorList(movieId)
- } catch(showError) {
+ } catch(showError){
       console.log("not a film")
       console.log("linked")
-const open = document.getElementById("open");
-const modal =document.getElementById("modal");
-const close =document.getElementById("close");
-
-close.innerHTML = 'Hello mum'
-close.addEventListener('click', function() {
-    console.log('CLICKED')
-})
-
-open.addEventListener('click' , () => {
-console.log("open clicked")
-modal.classList.remove('show');
-})
-
-close.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("clicked")
-    modal.classList.add('hide');
-})
-  }     
+  }
 }
 
 
@@ -154,18 +135,14 @@ function renderCard() {
   $(".row1").append(output);
 }
 
-const open = document.getElementById("Open");
-const modal_container = document.getElementById("modal-container");
-const close = document.getElementById("close");
+// closing Modal
+const close =document.getElementById("close");
 
-open.addEventListener('click' , () => {
-    modal_container.classList.add('show');
+close.innerHTML = 'Close'
+close.addEventListener('click', function() {
+    console.log('CLICKED')
+    modal.classList.add('hide');
 })
-
-close.addEventListener('click' , () => {
-    modal_container.classList.remove('show');
-})
-
 
 // To do:
 // Fix the search history function 
