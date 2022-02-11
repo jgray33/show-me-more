@@ -1,89 +1,128 @@
-*{
-    font-family: 'Roboto', sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-html, body {
-    box-sizing: border-box;
-    background-image: url('https://c4.wallpaperflare.com/wallpaper/883/883/818/movie-collage-wallpaper-preview.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    height: 100%;
-    font-size: 1em;
+html,
+body {
+  box-sizing: border-box;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/883/883/818/movie-collage-wallpaper-preview.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100%;
+  font-size: 1em;
 }
 
 .layer {
-    background-color: rgba(0, 0, 0, 0.65);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #home {
-    background: "";
-    /* height: 50%; */
-    /* display: -webkit-flex;
-    display: -ms-flexbox; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100%; */
-    /* padding: 0 1rem; */
+  background: "";
+  height: 50%; 
+  display: -webkit-flex;
+display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
 }
 
 h1 {
-    color: #fff;
-    font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
 }
 
 #home .input-group-field {
-    border-radius: 5000px 0 0 5000px;
-    position: relative;
-    width: 102%;
-    -webkit-transform: translateX(0.5rem);
-        -ms-transform: translateX(0.5rem);
-            transform: translateX(0.5rem);
+  border-radius: 5000px 0 0 5000px;
+  position: relative;
+  width: 102%;
+  -webkit-transform: translateX(0.5rem);
+  -ms-transform: translateX(0.5rem);
+  transform: translateX(0.5rem);
 }
 
-/*   
+  
 #home .input-group {
     margin-bottom: 0;
 }
-/*   
+  
 #home .home-inner {
     text-align: center;
-} */
-  
-#home .input-group-button .button {
-    position: relative;
-    border-radius: 5000px;
-    min-width: 15vw;
-} */
+}
 
-#next-page{
-     float: right;
-    margin-top: 150px;
+#home .input-group-button .button {
+  position: relative;
+  border-radius: 5000px;
+  min-width: 15vw;
+}
+*/ #next-page {
+  float: right;
+  margin-top: 150px;
+}
+
+.userMovieSearch,
+.otherMovieTitles {
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  width: auto;
+  padding: 2%;
+}
+
+/* Search history styling */
+.search-history {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  color: white;
+}
+
+/* Actor card container */
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: space-around;
 }
 
 #actors-card {
     width: 900px;
-        height: 400px;
+    height: 400px;
     border-radius: 6px;
     margin-top: 15px;
+  }
+
+/* Image resizing  */
+.container {
+  width: 250px;
+  height: 250px;
+}
+
+/* Resize images */
+.container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-divider {
+  background-color: black;
+  color: white;
+  height: 100px;
 }
 
 
-    .userMovieSearch {
-     font-size: 16px;
-      background-color: white;
-      color:black;
-      width: auto;
-      padding: 2%;
-        }
-  
 /* @media print, screen and (max-width: 810px) {
     html, body {
         background-repeat: repeat;
@@ -108,7 +147,7 @@ h1 {
         flex-direction: column;
     }
 } */
-  
+
 /* @media print, screen and (max-width: 480px) {
     #home .input-group {
         margin-bottom: 0;
@@ -117,43 +156,3 @@ h1 {
       }
       
     */
-
-.search-history {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: space-around;
-    color: white;
-}
-
-/* Actor card styling */
-
-.row1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-content: space-around;
-    }
-
-/* Image resizing  */
-.container {
-    width: 250px;
-    height: 250px;
-    }
-
-/* Resize images */
-.container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.card-divider{
-    background-color: black;
-    color: white;
-    height: 100px;
-}
-
-

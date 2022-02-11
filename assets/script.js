@@ -43,7 +43,7 @@ async function getIMDBApi(new_data) {
     let moviesList = data.results;
     for (let i = 0; i < 5; i++) {
       $(".movieSearchList").append(
-        `<button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button>`
+        `<button class="otherMovieTitles" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button>`
       );
     }
     $(".otherMovieTitles").on("click", (event) => {
