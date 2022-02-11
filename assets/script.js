@@ -33,6 +33,29 @@ $("#search-bttn").click(function () {
 
 // Fetches the movie ID user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
+
+  try{ 
+  let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5z1v7j/${new_data}`;
+  let response = await fetch(requestUrl);
+  let data = await response.json()
+
+  console.log(data);
+  movieId = data.results[0].id;
+  getActorList(movieId)
+ } catch(showError) {
+  console.log("not a film")
+  let modal = document.querySelector("#modal_container");
+  console.log(modal)
+  modal.classList.remove('hide')
+  let close =document.getElementById("close");
+  close.innerHTML = 'Close'
+  close.addEventListener('click', function() {
+  console.log('CLICKED')
+  modal.classList.add('hide');
+})
+  }     
+}
+
   $(".search-history-box").html("");
   showSearchHistory();
   $(".movieSearchList").html("");
@@ -142,6 +165,8 @@ function renderCard() {
     `;
   $(".row1").append(output);
 }
+//Modal
+
 
 //  Searches for the next actors once clicked on the "next page button" --------------------------------------------
 let clickCount = 0;
