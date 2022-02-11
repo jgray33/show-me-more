@@ -43,7 +43,7 @@ async function getIMDBApi(new_data) {
     let moviesList = data.results;
     for (let i = 0; i < 5; i++) {
       $(".movieSearchList").append(
-        `<li><button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button></li>`
+        `<button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button>`
       );
     }
     $(".otherMovieTitles").on("click", (event) => {
@@ -53,7 +53,7 @@ async function getIMDBApi(new_data) {
       $(".movieSearchList").html("");
       $("#search-field").val("");
       $("#search-field").val(newSearch);
-      getIMDBApi($("#search-field").val());
+          getIMDBApi($("#search-field").val());
     });
     console.log(data);
     console.log(data.results);
@@ -216,6 +216,7 @@ function showSearchHistory() {
       console.log("search history clicked");
       $("#search-field").val("");
       $("#search-field").val(this.event.target.value);
+      $("#actors-card").removeClass("hide")
       getIMDBApi(this.event.target.value);
     });
   }
