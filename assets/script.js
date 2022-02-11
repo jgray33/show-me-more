@@ -69,15 +69,15 @@ async function getIMDBApi(new_data) {
   movieId = data.results[0].id;
   getActorList(movieId)
  } catch(showError) {
-      console.log("not a film")
-      const modal = document.querySelector("#modal_container");
-      console.log(modal)
-      //modal.classList.remove('hide')
-      const close =document.getElementById("close");
-      close.innerHTML = 'Close'
-      close.addEventListener('click', function() {
-      console.log('CLICKED')
-      modal.classList.add('hide');
+  console.log("not a film")
+  let modal = document.querySelector("#modal_container");
+  console.log(modal)
+  modal.classList.remove('hide')
+  let close =document.getElementById("close");
+  close.innerHTML = 'Close'
+  close.addEventListener('click', function() {
+  console.log('CLICKED')
+  modal.classList.add('hide');
 })
   }     
 }
