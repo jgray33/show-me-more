@@ -1,3 +1,5 @@
+let apiKey = "k_faz1hkma"
+
 let actorName;
 let characterName;
 let twitterHandle;
@@ -13,6 +15,7 @@ showSearchHistory();
 $("#search-bttn").click(function () {
   // ------ Getting the user's search, adding it into local storage, adding it into search history, then plugging into the get IMDBApi ------
   $(".row1").html("");
+  $("#actors-card").removeClass("hide")
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
   // Setting local storage
@@ -27,17 +30,14 @@ $("#search-bttn").click(function () {
   getIMDBApi(new_data);
 });
 
-// function searchAgain(event) {
-//   console.log(this.event.target.value)
-//   }
 
 // Fetches the movie ID user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
-  $(".search-history-box").html("");
+  $(".search-history").html("");
   showSearchHistory();
   $(".movieSearchList").html("");
   try {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_hv6722ug/${new_data}`;
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/${apiKey}/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
@@ -68,7 +68,7 @@ async function getIMDBApi(new_data) {
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_hv6722ug/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/${apiKey}/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -123,19 +123,21 @@ async function getTwitterID(actorID) {
 function renderCard() {
 
     let output = `
-   <div class="card" style="width: 300px;">
-  <div class="card-divider">
-    <h4>${characterName}</h4>
-  </div>
-    <img src=${actorImage}>
-    <div class="card-section">
-    <p> Actor name: ${actorName}</p>
-    <p> Date of birth: ${actorBday}</p>
-    <p> Place of birth: ${actorPOB}</p>
-    <p> Twitter: ${twitterHandle}</p>
-    <p> Instagram: ${instagramHandle}</p>
-  </div>
-</div>
+        <div class="card" style="width: 250px;">
+      <div class="card-divider">
+        <h4>${characterName}</h4>
+      </div>
+      <div class="container">
+        <img src=${actorImage}>
+      </div>
+        <div class="card-section">
+        <p><b> Actor name:</b> ${actorName}</p>
+        <p><b> Date of birth:</b> ${actorBday}</p>
+        <p><b> Place of birth:</b> ${actorPOB}</p>
+        <p><b> Twitter:</b> ${twitterHandle}</p>
+        <p><b> Instagram:</b> ${instagramHandle}</p>
+      </div>
+    </div>
                `;
   $(".row1").append(output);
 }
@@ -145,7 +147,7 @@ let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_hv6722ug/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/${apiKey}/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -168,7 +170,7 @@ $("#next-page").on("click", async function nextPage() {
 $("#previous-page").on("click", async function previousPage() {
   let newClickCount = clickCount--;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_hv6722ug/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/${apiKey}/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -205,8 +207,8 @@ function showSearchHistory() {
       let newUS = uniqueSearches.slice(-5, uniqueSearches.length);
       console.log(newUS);
       for (let i = 0; i < newUS.length; i++) {
-        $(".search-history-box").append(
-          `<li><button class="userMovieSearch hollow button secondary" value="${newUS[i]}"> ${newUS[i]} </button></li>`
+        $(".search-history").append(
+          `<button class="userMovieSearch" value="${newUS[i]}"> ${newUS[i]} </button>`
         );
       } 
     }

@@ -1,58 +1,57 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Practice HTML Group Project</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"
-      crossorigin="anonymous"
-    />
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Show me more</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"
+    crossorigin="anonymous" />
 
-  <body>
-    <section id="home" class="layer">
-      <div class="home-inner">
-        <h1>Watched a great movie? Find all the stars and their info here:</h1>
-           
-        <!-- Search  bar -->
-        <div class="input-group">
-          <input id="search-field" class="input-group-field" type="text" placeholder="Search for a movie" value="">
-          <div class="input-group-button">
-            <input id="search-bttn" type="submit" class="button rounded bordered" value="Search">
-          </div>
+  <script src="https://kit.fontawesome.com/3bef4499fd.js" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <section id="home" class="layer">
+    <div class="home-inner">
+      <h1>Search a for a film or tv series and find the details of your favorite characters</h1>
+
+      <!-- Search  bar -->
+      <div class="input-group">
+        <input id="search-field" class="input-group-field" type="text" placeholder="Search for a movie or TV series"
+          value="">
+        <div class="input-group-button">
+          <input id="search-bttn" type="submit" class="button rounded bordered" value="Search">
         </div>
-
-        <!-- Actors cards -->
-        <div id="actors-card" class="hid">
-          <button id="next-page" class="arrow"> &#x25ba </button>
-          <button id="previous-page" class="arrow"> &#x25c4	 </button>
-
-          <div class="movieSearchList"> </div>
-          
-          <div class="row1">
-            
-          </div>
-        </div>
-
-        <!-- Search history -->
-        <div class="search-history"> 
-          <ul class="search-history-box vertical medium-horizontal menu"></ul>
-        </div>
-        
       </div>
-    </section>
-  </body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/script.js"></script>
+      <!-- Actors cards -->
+      <div id="actors-card" class="hide">
+        <button id="next-page" class="arrow"> &#x25ba </button>
+        <button id="previous-page" class="arrow"> &#x25c4 </button>
+        <div class="movieSearchList"> </div>
+        <div class="row1">
+        </div>
+      </div>
+
+      <!-- Search history -->
+      <div class="search-history"> Search history:
+      </div>
+
+
+  </section>
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/script.js"></script>
 
 </html>
-
