@@ -17,6 +17,7 @@ $("#search-bttn").click(function () {
   // ------ Getting the user's search, adding it into local storage, adding it into search history, then plugging into the get IMDBApi ------
   $("#actors-card").removeClass("hide");
   $(".row1").html("");
+  
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
   // Setting local storage
@@ -38,6 +39,7 @@ $(".loading-image").removeClass("hide")
  
   $(".search-history").html("");
   showSearchHistory();
+  $(".loading-img").removeClass("hide")
   $(".movieSearchList").html("");
   $(".input-group").addClass("hide");
   $(".search-history").addClass("hide");
@@ -248,6 +250,8 @@ function showSearchHistory() {
       console.log("search history clicked");
       console.log(event.target.getAttribute("value"));
       $("#search-field").val("");
+      $(".row1").html("")
+      $(".boyls").addClass("hide")
       $("#search-field").val(event.target.getAttribute("value"));
       $("")
       getIMDBApi(event.target.getAttribute("value"));
