@@ -5,6 +5,7 @@
   <title>Show me more</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"
     crossorigin="anonymous" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -12,58 +13,61 @@
 </head>
 
 <body>
-
   <section id="home" class="layer">
-    <div class="home-inner search-bar-layer">
+    <div class="home-inner">
+      <h1>Search for a film and find out the details of the actors:</h1>
+      
+      <button class="search-again hide" >Search again</button>
 
-      <h1>Search a for a film or tv series and find the details of your favorite characters</h1>
 
       <!-- Search  bar -->
       <div class="input-group">
-        <input id="search-field" class="input-group-field" type="text" placeholder="Search for a movie or TV series"
-          value="">
+        <input id="search-field" class="input-group-field" type="text" placeholder="Search for a movie" value="">
         <div class="input-group-button">
           <input id="search-bttn" type="submit" class="button rounded bordered" value="Search">
-        </div>
+        </div>      
+              </div>
+              <!-- Search history -->
+      <div class="search-history"> Search history:
       </div>
+              
+      <div class="boyls hide"> <h2> Based on your last search: </h2>
+<div class="movieSearchList "></div>
+</div>
 
-      <!-- Search history -->
-      <div class="search-history-box">
-        <h2 class="shb"> Search history<h2>
-        <div class="search-history"> </div>
-      </div>
-
-      <div class="movieSearchList"> Did you mean? </div>
-
-      <!-- Actors cards -->
+      <!-- Actor's cards -->
       <div id="actors-card" class="hide">
-        <button id="next-page" class="arrow"> &#x25ba </button>
-        <button id="previous-page" class="arrow"> &#x25c4 </button>
+        <button id="next-page" class="button"> Next page </button>
+        <button id="previous-page" class="button"> Previous page </button>
+
         <div class="row1">
         </div>
+
       </div>
+    
 
-    </div>
-    <!--Modal-->
-    <div id="modal_container" class="modal_container hide">
-      <div id="modal" class="modal">
-        <h1>OOPS!</h1>
-        <p>
-          The film title you have searched for is not in our records. Please check
-          your spelling and try again.
-        </p>
-        <button id="close">Close</button>
+    <!-- Modal -->
+    <div class="m-d">
+      <div id="modal_container" class="modal_ container hide">
+        <div id="modal" class="modal">
+          <h1>OOPS!</h1>
+          <p>
+            The film title you have searched for is not in our records. Please check
+            your spelling and try again.
+          </p>
+          <button id="close">Close</button>
+        </div>
       </div>
     </div>
-
-
-
+  </div>
   </section>
 
 
 </body>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="assets/script.js"></script>
+</body>
 
 </html>
