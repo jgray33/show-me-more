@@ -1,4 +1,4 @@
-let ApiKey = "k_d5zx1v7j";
+let ApiKey = "k_faz1hkma";
 
 let actorName;
 let characterName;
@@ -31,13 +31,11 @@ $("#search-bttn").click(function () {
   getIMDBApi(new_data);
 });
 
-// function searchAgain(event) {
-//   console.log(this.event.target.value)
-//   }
-
 // Fetches the movie ID user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
-  $("#actors-card").removeClass("hide")
+  $("#actors-card").removeClass("hide");
+$(".loading-image").removeClass("hide")
+ 
   $(".search-history").html("");
   showSearchHistory();
   $(".movieSearchList").html("");
@@ -45,12 +43,13 @@ async function getIMDBApi(new_data) {
   $(".search-history").addClass("hide");
   $("h1").addClass("hide");
   $(".search-again").removeClass("hide");
-  $(".searchHistory").addClass("hide")
-  $("#next-page").removeClass("hide")
+  $(".searchHistory").addClass("hide");
+  $("#next-page").removeClass("hide");
   try {
     let requestUrl = `https://imdb-api.com/en/API/SearchMovie/${ApiKey}/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
+    $(".loading-image").addClass("hide")
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
     let moviesList = data.results;
     for (let i = 0; i < 3; i++) {
@@ -75,20 +74,21 @@ async function getIMDBApi(new_data) {
     console.log(showError);
     console.log("not a film");
     $("#modal_container").removeClass("hide");
-    $(".search-again").addClass("hide")
+    $(".search-again").addClass("hide");
     $("#close").on("click", (e) => {
-    console.log("clicked");
-    $("#modal_container").addClass("hide");
-    $(".search-again").addClass("hide")
-    $("#next-page").addClass("hide")
-    $("previous-page").addClass("hide")
-    $(".input-group").removeClass("hide")
-    $(".search-history").removeClass("hide")
-    $("#actors-card").addClass("hide")
-    $(".searchHistory").removeClass("hide")
-    $("h1").removeClass("hide")
-  });
-}
+      console.log("clicked");
+      $(".boyls").addClass("hide")
+      $("#modal_container").addClass("hide");
+      $(".search-again").addClass("hide");
+      $("#next-page").addClass("hide");
+      $("previous-page").addClass("hide");
+      $(".input-group").removeClass("hide");
+      $(".search-history").removeClass("hide");
+      $("#actors-card").addClass("hide");
+      $(".searchHistory").removeClass("hide");
+      $("h1").removeClass("hide");
+    });
+  }
 }
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
@@ -246,20 +246,21 @@ function showSearchHistory() {
     }
     $(".userMovieSearch").on("click", (event) => {
       console.log("search history clicked");
-      console.log(event.target.getAttribute("value"))
+      console.log(event.target.getAttribute("value"));
       $("#search-field").val("");
       $("#search-field").val(event.target.getAttribute("value"));
+      $("")
       getIMDBApi(event.target.getAttribute("value"));
     });
   }
 }
 
 $(".search-again").on("click", (e) => {
-  console.log("search again")
-  $("#actors-card").addClass("hide")
+  console.log("search again");
+  $("#actors-card").addClass("hide");
   $(".input-group").removeClass("hide");
   $(".search-history").removeClass("hide");
   $("h1").removeClass("hide");
-  $(".search-again").addClass("hide")
-  $(".boyls").removeClass("hide")
-})
+  $(".search-again").addClass("hide");
+  $(".boyls").removeClass("hide");
+});
