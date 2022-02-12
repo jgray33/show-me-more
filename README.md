@@ -8,7 +8,7 @@ Click [here](https://jgray33.github.io/show-me-more/) to go to the finished proj
 
 ## Description 
 
-A website that presents the user with only the information they are in. The website is use friendly and simple to navigate. It utilises local storage to present the user with their recent searches. The website also presents the user with search suggestions depending on their recent search. When a movie is not found, a modal notifies the user and is directed back to search for a film again.
+A website that presents the user with only the information they are interested in. The website is user friendly and simple to navigate. It utilises local storage to present the user with their recent searches. The website also presents the user with search suggestions depending on their recent search. When a movie is not found, a modal notifies the user and is directed back to search for a film again.
 
 ## Technologies used 
 
@@ -21,6 +21,7 @@ A website that presents the user with only the information they are in. The webs
 
 # Screenshot
 
+![image](https://user-images.githubusercontent.com/95051960/153722776-c30f4f23-8bf9-4070-9e28-7f396742ef0e.png)
 
 ## Links
 
