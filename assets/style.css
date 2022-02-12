@@ -108,60 +108,6 @@ h2{
   margin-top: 22.5px;
 }
 
-/* @media print, screen and (max-width: 810px) {
-  html, body {
-      background-repeat: repeat;
-  }
-  #home {
-    padding: 0 6rem;
-  }
-  .home-inner h1 {
-      font-size: 100%;
-  }
-  #home .input-group {
-      margin-bottom: 0;
-      width: 75%;
-      margin-left: 100px;
-  }
-  #actors-card {
-      background: none;
-  }
-  .row1 {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-  }
-
-  .image-hover-wrapper a img {
-      width: 300px;
-      margin-bottom: 25px;
-  }
-  .image-hover-wrapper .image-hover-wrapper-banner {
-      width: 300px;
-      margin-top: 238px;
-      margin-left: 300px;
-  }
-} */
-
-/* @media print, screen and (max-width: 480px) {
-  #home .input-group {
-      margin-bottom: 0;
-      width: 46%;
-      margin-left: 237px;
-    }
-    
-  .image-hover-wrapper a img {
-      width: 330px;
-  }
-  .image-hover-wrapper .image-hover-wrapper-banner {
-      width: 330px;
-      margin-top: 238px;
-      margin-left: 285px;
-  } */
-
-
-
-
 /* card styling */
 .card {
   margin: 1%;
@@ -264,9 +210,6 @@ button, #next-page, #previous-page {
 .hide {
   opacity: 0;
 }
-
-
-
 
 .m-d{
   position: fixed;
