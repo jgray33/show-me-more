@@ -17,6 +17,7 @@ $("#search-bttn").click(function () {
   // ------ Getting the user's search, adding it into local storage, adding it into search history, then plugging into the get IMDBApi ------
   $("#actors-card").removeClass("hide");
   $(".row1").html("");
+  
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
   // Setting local storage
@@ -40,17 +41,23 @@ async function getIMDBApi(new_data) {
   $("#actors-card").removeClass("hide")
   $(".search-history").html("");
   showSearchHistory();
+  $(".loading-img").removeClass("hide")
   $(".movieSearchList").html("");
   $(".input-group").addClass("hide");
   $(".search-history").addClass("hide");
   $("h1").addClass("hide");
-  $(".search-again").removeClass("hide");
+  $(".search-again").addClass("hide");
   $(".searchHistory").addClass("hide")
-  $("#next-page").removeClass("hide")
+  $("#next-page").addClass("hide")
+  $("#previous-page").addClass("hide")
   try {
     let requestUrl = `https://imdb-api.com/en/API/SearchMovie/${ApiKey}/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
+    $(".loading-img").addClass("hide")
+    $(".search-again").removeClass("hide");
+    $("#next-page").removeClass("hide")
+    $("#previous-page").removeClass("hide")
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
     let moviesList = data.results;
     for (let i = 0; i < 3; i++) {
@@ -248,6 +255,8 @@ function showSearchHistory() {
       console.log("search history clicked");
       console.log(event.target.getAttribute("value"))
       $("#search-field").val("");
+      $(".row1").html("")
+      $(".boyls").addClass("hide")
       $("#search-field").val(event.target.getAttribute("value"));
       getIMDBApi(event.target.getAttribute("value"));
     });
