@@ -6,18 +6,12 @@ TECHNOLOGIES USED:
 
 -HTML
 -Javascript 
--APIs: IMDB, TMDB
+-APIs: IMDB, TMDB 
 -Zurb Foundation
 -JQuery
-
-
 
 SCREENSHOT:
 
 
-
-
-
 LINK TO DEPLOYED APPLICATION:
 
-https://jgray33.github.io/group-project-one/ 
