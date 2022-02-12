@@ -47,8 +47,6 @@ h2{
 #home .input-group-field {
   border-radius: 5000px 0 0 5000px;
   position: relative;
-
-
   width: 122%;
   -webkit-transform: translateX(0.5rem);
   -ms-transform: translateX(0.5rem);
@@ -71,6 +69,7 @@ h2{
 .input-group > :last-child, .input-group > :last-child.input-group-button > * {
   border-radius: 25px;
   width: 125px;
+}
 
 .loading-img {
   margin-top: 400px;
@@ -210,7 +209,6 @@ h4 {
   text-transform: capitalize;
   margin: 1%;
 }
-
 
 .search-history, .otherMovieTitles, .searchHistory {
   color: white;
