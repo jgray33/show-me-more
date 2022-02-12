@@ -71,6 +71,10 @@ h2{
   width: 125px;
 }
 
+.loading-img {
+  margin-top: 400px;
+}
+
 #next-page {
   float: right;
   margin-top: 20%;
