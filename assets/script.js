@@ -1,3 +1,5 @@
+let ApiKey = "k_d5zx1v7j";
+
 let actorName;
 let characterName;
 let twitterHandle;
@@ -5,6 +7,7 @@ let actorImage;
 let movieId;
 let actorBday;
 let actorPOB;
+let actorAge;
 
 showSearchHistory();
 
@@ -12,6 +15,7 @@ showSearchHistory();
 
 $("#search-bttn").click(function () {
   // ------ Getting the user's search, adding it into local storage, adding it into search history, then plugging into the get IMDBApi ------
+  $("#actors-card").removeClass("hide");
   $(".row1").html("");
   console.log("you clicked search ");
   let new_data = $("#search-field").val();
@@ -33,22 +37,29 @@ $("#search-bttn").click(function () {
 
 // Fetches the movie ID user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
-  $(".search-history-box").html("");
+  $("#actors-card").removeClass("hide")
+  $(".search-history").html("");
   showSearchHistory();
   $(".movieSearchList").html("");
+  $(".input-group").addClass("hide");
+  $(".search-history").addClass("hide");
+  $("h1").addClass("hide");
+  $(".search-again").removeClass("hide");
+  $(".searchHistory").addClass("hide")
+  $("#next-page").removeClass("hide")
   try {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/${ApiKey}/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
     let moviesList = data.results;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       $(".movieSearchList").append(
-        `<li><button class="otherMovieTitles hollow button secondary" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description} </button></li>`
+        `<li class="otherMovieTitles" value="${moviesList[i].title}"> ${moviesList[i].title} ${moviesList[i].description}</li>`
       );
     }
     $(".otherMovieTitles").on("click", (event) => {
-      let newSearch = this.event.target.value;
+      newSearch = event.target.getAttribute("value");
       console.log(newSearch);
       $(".row1").html("");
       $(".movieSearchList").html("");
@@ -63,12 +74,26 @@ async function getIMDBApi(new_data) {
   } catch (showError) {
     console.log(showError);
     console.log("not a film");
-  }
+    $("#modal_container").removeClass("hide");
+    $(".search-again").addClass("hide")
+    $("#close").on("click", (e) => {
+    console.log("clicked");
+    $("#modal_container").addClass("hide");
+    $(".search-again").addClass("hide")
+    $("#next-page").addClass("hide")
+    $("previous-page").addClass("hide")
+    $(".input-group").removeClass("hide")
+    $(".search-history").removeClass("hide")
+    $("#actors-card").addClass("hide")
+    $(".searchHistory").removeClass("hide")
+    $("h1").removeClass("hide")
+  });
+}
 }
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/${ApiKey}/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -106,13 +131,20 @@ async function getTwitterID(actorID) {
   let data = await response.json();
   console.log(data);
   instagramHandle = data.instagram_id;
+  if (instagramHandle == null) {
+    instagramHandle = "-";
+  }
   twitterHandle = data.twitter_id;
+  if (twitterHandle == null) {
+    twitterHandle = "-";
+  }
 
   let requestUrl2 = `https://api.themoviedb.org/3/person/${actorID}?api_key=7fcabf766db7f48c8e77b585913f04f8&language=en-US`;
   let response2 = await fetch(requestUrl2);
   let data2 = await response2.json();
   console.log(data2);
   actorBday = data2.birthday;
+  actorAge = 2022 - parseInt(actorBday);
   actorPOB = data2.place_of_birth;
   console.log(actorBday);
   console.log(actorPOB);
@@ -121,24 +153,23 @@ async function getTwitterID(actorID) {
 
 // Renders the actor's card pulling in all the information fetched from the APIs
 function renderCard() {
-
-    let output = `    <div class="orbit-wrapper">
-            <div class="orbit-controls">
-              <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-              <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-            </div>
-  
-           <div class=" actor-card image-hover-wrapper column">
-            <span class="image-hover-wrapper-banner">${characterName}</span>
-              <a href=""><img src="${actorImage}">
-                <span class="image-hover-wrapper-reveal">
-                <h2>${actorName}</h2>
-                  <p><i class="fab fa-twitter" aria-hidden="true"></i>&nbsp;${twitterHandle}</p><br><br>
-                  <p><i class="fab fa-instagram" aria-hidden="true">&nbsp;${instagramHandle}</i></p>
-                </span>
-              </a>
-            </div>
-          </div>
+  let output = `
+        <div class="card" style="width: 350px;">
+      <div class="card-divider">
+        <h4>${characterName}</h4>
+      </div>
+      <div class="container">
+        <img src=${actorImage}>
+      </div>
+        <div class="card-section">
+        <p><b> Actor name:</b> ${actorName}</p>
+        <p><b> Age:</b> ${actorAge} </p>
+        <p><b> Date of birth:</b> ${actorBday}</p>
+        <p><b> Place of birth:</b> ${actorPOB}</p>
+        <p><b> Twitter:</b><a href="https://twitter.com/${twitterHandle}" target="_blank"> ${twitterHandle}</a></p>
+        <p><b> Instagram:</b><a href="https://instagram.com/${instagramHandle}" target="_blank"> ${instagramHandle}</a></p>
+      </div>
+    </div>
     `;
   $(".row1").append(output);
 }
@@ -148,7 +179,7 @@ let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/${ApiKey}/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -167,11 +198,11 @@ $("#next-page").on("click", async function nextPage() {
   }
 });
 
-
+//Loads the next four character cards --------------------------------------------
 $("#previous-page").on("click", async function previousPage() {
   let newClickCount = clickCount--;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/${ApiKey}/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -205,19 +236,30 @@ function showSearchHistory() {
     console.log(uniqueSearches);
     if (uniqueSearches.length > 6) {
       console.log("Too big");
-      let newUS = uniqueSearches.slice(-5, uniqueSearches.length);
+      let newUS = uniqueSearches.slice(-3, uniqueSearches.length);
       console.log(newUS);
       for (let i = 0; i < newUS.length; i++) {
-        $(".search-history-box").append(
-          `<li><button class="userMovieSearch hollow button secondary" value="${newUS[i]}"> ${newUS[i]} </button></li>`
+        $(".search-history").append(
+          `<li class="userMovieSearch" value="${newUS[i]}"> ${newUS[i]} </li>`
         );
       }
     }
     $(".userMovieSearch").on("click", (event) => {
       console.log("search history clicked");
+      console.log(event.target.getAttribute("value"))
       $("#search-field").val("");
-      $("#search-field").val(this.event.target.value);
-      getIMDBApi(this.event.target.value);
+      $("#search-field").val(event.target.getAttribute("value"));
+      getIMDBApi(event.target.getAttribute("value"));
     });
   }
 }
+
+$(".search-again").on("click", (e) => {
+  console.log("search again")
+  $("#actors-card").addClass("hide")
+  $(".input-group").removeClass("hide");
+  $(".search-history").removeClass("hide");
+  $("h1").removeClass("hide");
+  $(".search-again").addClass("hide")
+  $(".boyls").removeClass("hide")
+})
