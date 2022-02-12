@@ -37,7 +37,7 @@ async function getIMDBApi(new_data) {
   showSearchHistory();
   $(".movieSearchList").html("");
   try {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5zx1v7j/${new_data}`;
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
@@ -68,7 +68,7 @@ async function getIMDBApi(new_data) {
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -148,7 +148,7 @@ let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
