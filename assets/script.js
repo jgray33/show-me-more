@@ -37,7 +37,7 @@ async function getIMDBApi(new_data) {
   showSearchHistory();
   $(".movieSearchList").html("");
   try {
-    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_d5zx1v7j/${new_data}`;
+    let requestUrl = `https://imdb-api.com/en/API/SearchMovie/k_faz1hkma/${new_data}`;
     let response = await fetch(requestUrl);
     let data = await response.json();
     // Get the alternative searches from the data and add them into the "searches related to/did you mean" search list -------------------------------------------
@@ -68,7 +68,7 @@ async function getIMDBApi(new_data) {
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
 async function getActorList() {
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -134,7 +134,7 @@ function renderCard() {
                 <span class="image-hover-wrapper-reveal">
                 <h2>${actorName}</h2>
                   <p><i class="fab fa-twitter" aria-hidden="true"></i>&nbsp;${twitterHandle}</p><br><br>
-                  <p><i class="fab fa-instagram" aria-hidden="true">&nbsp;${instagramHandle}</i></p>
+                  <p><i class="fa-solid fa-caret-right" aria-hidden="true">&nbsp;${instagramHandle}</i></p>
                 </span>
               </a>
             </div>
@@ -148,7 +148,7 @@ let clickCount = 0;
 $("#next-page").on("click", async function nextPage() {
   let newClickCount = clickCount++;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
@@ -171,7 +171,7 @@ $("#next-page").on("click", async function nextPage() {
 $("#previous-page").on("click", async function previousPage() {
   let newClickCount = clickCount--;
   let x = clickCount * 4;
-  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_d5zx1v7j/${movieId}`;
+  let getFullCast = `https://imdb-api.com/en/API/FullCast/k_faz1hkma/${movieId}`;
   let response2 = await fetch(getFullCast);
   let data2 = await response2.json();
   console.log(data2);
