@@ -47,7 +47,7 @@ h2{
 #home .input-group-field {
   border-radius: 5000px 0 0 5000px;
   position: relative;
-  width: 102%;
+  width: 122%;
   -webkit-transform: translateX(0.5rem);
   -ms-transform: translateX(0.5rem);
   transform: translateX(0.5rem);
@@ -64,7 +64,11 @@ h2{
 #home .input-group-button {
   position: relative;
   border-radius: 5000px;
-  min-width: 15vw;
+}
+
+.input-group > :last-child, .input-group > :last-child.input-group-button > * {
+  border-radius: 25px;
+  width: 125px;
 }
 
 #next-page {
