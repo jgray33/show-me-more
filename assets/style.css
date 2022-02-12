@@ -202,7 +202,7 @@ h4 {
   margin: 1%;
 }
 
-.search-history, .otherMovieTitles {
+.search-history, .otherMovieTitles, .searchHistory {
   color: white;
   margin-top: 2%;
   display: flex;
@@ -259,9 +259,10 @@ button, #next-page, #previous-page {
 
 
 
-}
-/* 
+
 .m-d{
-  width: 60%;
-  margin: auto;
-} */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

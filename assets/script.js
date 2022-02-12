@@ -1,4 +1,4 @@
-let ApiKey = "k_hv6722ug";
+let ApiKey = "k_d5zx1v7j";
 
 let actorName;
 let characterName;
@@ -37,6 +37,7 @@ $("#search-bttn").click(function () {
 
 // Fetches the movie ID user's search using IMDI API ----------------------------
 async function getIMDBApi(new_data) {
+  $("#actors-card").removeClass("hide")
   $(".search-history").html("");
   showSearchHistory();
   $(".movieSearchList").html("");
@@ -44,7 +45,8 @@ async function getIMDBApi(new_data) {
   $(".search-history").addClass("hide");
   $("h1").addClass("hide");
   $(".search-again").removeClass("hide");
-  $(".boyls").removeClass("hide")
+  $(".searchHistory").addClass("hide")
+  $("#next-page").removeClass("hide")
   try {
     let requestUrl = `https://imdb-api.com/en/API/SearchMovie/${ApiKey}/${new_data}`;
     let response = await fetch(requestUrl);
@@ -57,7 +59,7 @@ async function getIMDBApi(new_data) {
       );
     }
     $(".otherMovieTitles").on("click", (event) => {
-      newSearch = this.event.target.value;
+      newSearch = event.target.getAttribute("value");
       console.log(newSearch);
       $(".row1").html("");
       $(".movieSearchList").html("");
@@ -73,11 +75,20 @@ async function getIMDBApi(new_data) {
     console.log(showError);
     console.log("not a film");
     $("#modal_container").removeClass("hide");
+    $(".search-again").addClass("hide")
     $("#close").on("click", (e) => {
-      console.log("clicked");
-      $("#modal_container").addClass("hide");
-    });
-  }
+    console.log("clicked");
+    $("#modal_container").addClass("hide");
+    $(".search-again").addClass("hide")
+    $("#next-page").addClass("hide")
+    $("previous-page").addClass("hide")
+    $(".input-group").removeClass("hide")
+    $(".search-history").removeClass("hide")
+    $("#actors-card").addClass("hide")
+    $(".searchHistory").removeClass("hide")
+    $("h1").removeClass("hide")
+  });
+}
 }
 
 // Using the Movie ID, fetches the list of actors in that movie from IMDB API ------------------------------------------------------------
@@ -235,9 +246,10 @@ function showSearchHistory() {
     }
     $(".userMovieSearch").on("click", (event) => {
       console.log("search history clicked");
+      console.log(event.target.getAttribute("value"))
       $("#search-field").val("");
-      $("#search-field").val(this.event.target.value);
-      getIMDBApi(this.event.target.value);
+      $("#search-field").val(event.target.getAttribute("value"));
+      getIMDBApi(event.target.getAttribute("value"));
     });
   }
 }
@@ -249,4 +261,5 @@ $(".search-again").on("click", (e) => {
   $(".search-history").removeClass("hide");
   $("h1").removeClass("hide");
   $(".search-again").addClass("hide")
+  $(".boyls").removeClass("hide")
 })
