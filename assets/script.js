@@ -217,23 +217,22 @@ function showSearchHistory() {
       }
     });
     console.log(uniqueSearches);
-    if (uniqueSearches.length > 6) {
-      let newUS = uniqueSearches.slice(-3, uniqueSearches.length);
+        let newUS = uniqueSearches.slice(-3, uniqueSearches.length);
         for (let i = 0; i < newUS.length; i++) {
         $(".search-history").append(
           `<li class="userMovieSearch" value="${newUS[i]}"> ${newUS[i]} </li>`
         );
       }
-    }
-    $(".userMovieSearch").on("click", (event) => {
+    } 
+      }
+          $(".userMovieSearch").on("click", (event) => {
           $("#search-field").val("");
       $(".row1").html("")
       $(".boyls").addClass("hide")
       $("#search-field").val(event.target.getAttribute("value"));
       getIMDBApi(event.target.getAttribute("value"));
     });
-  }
-}
+
 
 $(".search-again").on("click", (e) => {
   $("#actors-card").addClass("hide") 
