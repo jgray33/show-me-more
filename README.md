@@ -31,9 +31,7 @@ A website that presents the user with only the information they are interested i
 - Javascript file https://github.com/jgray33/show-me-more/blob/main/assets/script.js 
 
 
-### License
-
-MIT License
+### MIT License
 
 Copyright (c) [2022] [Julia Gray]
 
